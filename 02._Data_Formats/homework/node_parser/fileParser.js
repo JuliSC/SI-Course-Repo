@@ -17,7 +17,7 @@ function parse(filePath) {
     case "csv":
       return parseCSV(file);
     case "json":
-      return JSON.parse(file);
+      return parseJSON(file);
     case "xml":
       return parseXML(file);
     case "yaml":
@@ -49,6 +49,11 @@ function parseCSV(file) {
     result.push(obj);
   });
   return result;
+}
+
+function parseJSON(file) {
+  JSON.parse(file);
+  return JSON.parse(file);
 }
 
 function parseXML(file) {
