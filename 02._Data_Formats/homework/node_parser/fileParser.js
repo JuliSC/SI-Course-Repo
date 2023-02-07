@@ -30,6 +30,10 @@ function parse(filePath) {
 }
 
 // Specific functions to parse each file type
+
+// CSV file parser looping through each line and splitting it by comma
+// If the value is an array, it will be split by semicolon
+// Returns an array of objects
 function parseCSV(file) {
   const lines = file.split(/[/\r|\n/]+/);
   const headers = lines.shift().split(",");
@@ -51,11 +55,13 @@ function parseCSV(file) {
   return result;
 }
 
+// JSON file parser using JSON.parse()
 function parseJSON(file) {
   JSON.parse(file);
   return JSON.parse(file);
 }
 
+// XML file parser using xml2js npm package
 function parseXML(file) {
   let result = {};
 
@@ -71,10 +77,13 @@ function parseXML(file) {
   return result;
 }
 
+// YAML file parser using js-yaml npm package
 function parseYaml(file) {
   return yaml.load(file);
 }
 
+// TXT file parser looping through each line and splitting it by colon and space
+// If the value is an array, it will be split by comma
 function parseTxt(file) {
   const lines = file.split(/[/\r|\n/]+/);
 
