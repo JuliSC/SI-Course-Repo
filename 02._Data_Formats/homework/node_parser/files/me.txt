@@ -1,3 +1,0 @@
-Name: Julius
-Age: 25
-Hobbies: Guitar, Gaming, Programming
