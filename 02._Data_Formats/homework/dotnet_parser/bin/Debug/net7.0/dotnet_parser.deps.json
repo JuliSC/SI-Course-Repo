@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "dotnet_parser/1.0.0": {
+        "dependencies": {
+          "YamlDotNet": "13.0.0"
+        },
+        "runtime": {
+          "dotnet_parser.dll": {}
+        }
+      },
+      "YamlDotNet/13.0.0": {
+        "runtime": {
+          "lib/net7.0/YamlDotNet.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "dotnet_parser/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "YamlDotNet/13.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4ZNUK9nl6i8DHPbjmJR23OJvCvesgTJoDuILy0bpN2HeYROpKa4bDy8QvXXPcPnmes573IS9FGFUqpZgKeFLGA==",
+      "path": "yamldotnet/13.0.0",
+      "hashPath": "yamldotnet.13.0.0.nupkg.sha512"
+    }
+  }
+}

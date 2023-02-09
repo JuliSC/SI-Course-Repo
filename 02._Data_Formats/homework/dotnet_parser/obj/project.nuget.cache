@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "tndxaCglIwh5di5IzDL5OgC8OI25/pe/a/7EMSA/D+xYTMOmybqWflMiEJGShKcsYfXzl8DIQFiRlmsmy8e1yw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jules\\Documents\\Skole\\KEA Documents\\SI\\SI-Course-Repo\\02._Data_Formats\\homework\\dotnet_parser\\dotnet_parser.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jules\\.nuget\\packages\\yamldotnet\\13.0.0\\yamldotnet.13.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,17 @@
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\bin\Debug\net7.0\dotnet_parser.exe
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\bin\Debug\net7.0\dotnet_parser.deps.json
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\bin\Debug\net7.0\dotnet_parser.runtimeconfig.json
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\bin\Debug\net7.0\dotnet_parser.dll
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\bin\Debug\net7.0\dotnet_parser.pdb
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\obj\Debug\net7.0\dotnet_parser.csproj.AssemblyReference.cache
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\obj\Debug\net7.0\dotnet_parser.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\obj\Debug\net7.0\dotnet_parser.AssemblyInfoInputs.cache
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\obj\Debug\net7.0\dotnet_parser.AssemblyInfo.cs
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\obj\Debug\net7.0\dotnet_parser.csproj.CoreCompileInputs.cache
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\obj\Debug\net7.0\dotnet_parser.dll
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\obj\Debug\net7.0\refint\dotnet_parser.dll
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\obj\Debug\net7.0\dotnet_parser.pdb
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\obj\Debug\net7.0\dotnet_parser.genruntimeconfig.cache
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\obj\Debug\net7.0\ref\dotnet_parser.dll
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\bin\Debug\net7.0\YamlDotNet.dll
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\02._Data_Formats\homework\dotnet_parser\obj\Debug\net7.0\dotnet_parser.csproj.CopyComplete
