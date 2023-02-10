@@ -32,6 +32,12 @@ public class FileParser {
     }
   }
 
+  // Specific functions to parse each file type
+
+  // CSV file parser splitting header line and first data line
+  // and then splitting the data line into the specific fields required 
+  // for the Person class objects
+  // Returns the new Person object or null 
   public static Person ParseCSV(string file) {
     string[] lines = file.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
     string line = "";
@@ -57,6 +63,7 @@ public class FileParser {
     }
   }
 
+  // JSON file parser using the System.Text.Json library
   public static Person ParseJSON(string file) {
     JsonSerializerOptions options = new JsonSerializerOptions
     {
@@ -67,13 +74,14 @@ public class FileParser {
     return person;
   }
 
+  // XML file parser using the System.Xml.Serialization library
   public static Person ParseXML(string file) {
     XmlSerializer serializer = new XmlSerializer(typeof(Person));
     Person person = DeserializeXmlFromString<Person>(file);
     return person;
   }
 
-  // Helper for parsing XML
+  // Helper for parsing XML from string
   private static T DeserializeXmlFromString<T>(string xmlText) {
     using (StringReader reader = new StringReader(xmlText))
     {
@@ -82,17 +90,21 @@ public class FileParser {
     }
   }
 
+  // YAML file parser using the YamlDotNet library
   public static Person ParseYAML(string file) {
     Person person = DeserializeYamlFromString<Person>(file);
     return person;
   }
 
-  // Helper for parsing YAML
+  // Helper for parsing YAML from string
   private static T DeserializeYamlFromString<T>(string yamlText) {
       var deserializer = new DeserializerBuilder().Build();
       return deserializer.Deserialize<T>(yamlText);
   }
 
+  // TXT file parser splitting the file into lines and then splitting
+  // each line into the specific fields required for the Person class object
+  // Returns the new Person object or null
   public static Person ParseTXT(string file) {
     string[] lines = file.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
     
