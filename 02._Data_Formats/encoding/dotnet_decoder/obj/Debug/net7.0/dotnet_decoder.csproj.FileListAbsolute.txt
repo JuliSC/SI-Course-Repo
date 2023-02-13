@@ -1,0 +1,5 @@
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\03._Encoding\dotnet_decoder\obj\Debug\net7.0\dotnet_decoder.csproj.AssemblyReference.cache
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\03._Encoding\dotnet_decoder\obj\Debug\net7.0\dotnet_decoder.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\03._Encoding\dotnet_decoder\obj\Debug\net7.0\dotnet_decoder.AssemblyInfoInputs.cache
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\03._Encoding\dotnet_decoder\obj\Debug\net7.0\dotnet_decoder.AssemblyInfo.cs
+C:\Users\Jules\Documents\Skole\KEA Documents\SI\SI-Course-Repo\03._Encoding\dotnet_decoder\obj\Debug\net7.0\dotnet_decoder.csproj.CoreCompileInputs.cache
