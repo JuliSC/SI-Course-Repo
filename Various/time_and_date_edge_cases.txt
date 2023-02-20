@@ -1,0 +1,13 @@
+The following is a list of edge cases to think about when implementing time and date.
+
+
+* Leap seconds
+* Leap years
+* Daylight savings time
+* Time zones
+* Time zones that change over time
+* Time zones that change over time and have daylight savings time
+* Time zones that change over time and have daylight savings time and have leap seconds
+* Time zones that change over time and have daylight savings time and have leap seconds and have leap years
+* Time zones that change over time and have daylight savings time and have leap seconds and have leap years and have leap seconds in leap years
+* Different formats for time and date

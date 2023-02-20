@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "UpajVPWJ4AyW2/EtYLo0gdPJVh0Sld5UUMsaRMwDsS7y1bxT8tXqeda/YlhchtmagQmxo6C4yn7lEJMa84C1ew==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jules\\Documents\\Skole\\KEA Documents\\SI\\SI-Course-Repo\\04._Basic_Servers\\dotnet\\dotnet.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jules\\.nuget\\packages\\yamldotnet\\13.0.0\\yamldotnet.13.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
