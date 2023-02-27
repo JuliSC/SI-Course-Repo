@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <style>
+            h1 {
+                text-align: center;
+            }
+            
+            table, th, td {
+                border: 1px solid black;
+            }
+    
+            main {
+                min-height: calc(100vh - 40px);
+                margin: 0 4em 0 4em;
+            }
+    
+            table {
+                width: 100%;
+            }
+    
+            footer {
+                color: grey;
+                font-size: 0.8em;
+            }
+        </style>
+        <title>mydb - Docs</title>
+    </head>
+    <body>
+        <main>
+            <h1>mydb</h1>
+    
+            <div class="database-table">
+        <h2 class="database-table-name">champions</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>typeJS</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>name</td><td>varchar(45)</td><td>YES</td><td>UNI</td><td></td><td>String</td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">divisions</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>typeJS</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>name</td><td>varchar(45)</td><td>YES</td><td>UNI</td><td></td><td>String</td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">gamemodes</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>typeJS</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>name</td><td>varchar(45)</td><td>NO</td><td>UNI</td><td></td><td>String</td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">masteries</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>typeJS</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>level</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>championsPoints</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>lastPlayed</td><td>datetime</td><td>YES</td><td></td><td></td><td>String</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>summoners_id</td><td>int</td><td>NO</td><td>MUL</td><td></td><td>Number</td><td>summoners.id</td>
+                </tr>
+                
+                <tr>
+                    <td>summoners_ranks_id</td><td>int</td><td>NO</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>champions_id</td><td>int</td><td>NO</td><td>MUL</td><td></td><td>Number</td><td>champions.id</td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">matches</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>typeJS</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>duration</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>gamemodes_id</td><td>int</td><td>NO</td><td>MUL</td><td></td><td>Number</td><td>gamemodes.id</td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">participants</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>typeJS</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>assists</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>deaths</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>kills</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>baronkills</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>consumablePurchased</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>damageDealtToBuildings</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>damageDealtToObjectives</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>damageDealtToTurrets</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>damageSelfMitigated</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>doubleKills</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>tripleKills</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>quadraKills</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>pentaKills</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>teams_id</td><td>int</td><td>NO</td><td>PRI</td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>summoners_id</td><td>int</td><td>NO</td><td>MUL</td><td></td><td>Number</td><td>summoners.id</td>
+                </tr>
+                
+                <tr>
+                    <td>positions_id</td><td>int</td><td>NO</td><td>MUL</td><td></td><td>Number</td><td>positions.id</td>
+                </tr>
+                
+                <tr>
+                    <td>champions_id</td><td>int</td><td>NO</td><td>MUL</td><td></td><td>Number</td><td>champions.id</td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">positions</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>typeJS</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>name</td><td>varchar(45)</td><td>YES</td><td>UNI</td><td></td><td>String</td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">ranks</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>typeJS</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>lp</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>divisions_id</td><td>int</td><td>NO</td><td>MUL</td><td></td><td>Number</td><td>divisions.id</td>
+                </tr>
+                
+                <tr>
+                    <td>tiers_id</td><td>int</td><td>NO</td><td>MUL</td><td></td><td>Number</td><td>tiers.id</td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">regions</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>typeJS</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>name</td><td>varchar(45)</td><td>YES</td><td>UNI</td><td></td><td>String</td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">summoners</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>typeJS</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>name</td><td>varchar(45)</td><td>YES</td><td></td><td></td><td>String</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>level</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>icon</td><td>int</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>regions_id</td><td>int</td><td>NO</td><td>MUL</td><td></td><td>Number</td><td>regions.id</td>
+                </tr>
+                
+                <tr>
+                    <td>ranks_id</td><td>int</td><td>NO</td><td>PRI</td><td></td><td>Number</td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">teams</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>typeJS</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>matchWon</td><td>tinyint(1)</td><td>YES</td><td></td><td></td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>matches_id</td><td>int</td><td>NO</td><td>PRI</td><td></td><td>Number</td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">teams_bans_champions</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>typeJS</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>teams_id</td><td>int</td><td>NO</td><td>PRI</td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>teams_matches_id</td><td>int</td><td>NO</td><td>PRI</td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>champions_id</td><td>int</td><td>NO</td><td>PRI</td><td>Number</td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    
+        <h2 class="database-table-name">tiers</h2>
+        <table class="database-table-body">
+            <tr>
+                <th>field</th><th>type</th><th>null</th><th>key</th><th>extra</th><th>typeJS</th><th>keyTo</th>                 
+            </tr>
+    
+        </tr>
+        </thead>
+        <tbody>
+    
+            
+                <tr>
+                    <td>id</td><td>int</td><td>NO</td><td>PRI</td><td>auto_increment</td><td>Number</td><td></td>
+                </tr>
+                
+                <tr>
+                    <td>value</td><td>varchar(10)</td><td>YES</td><td>UNI</td><td></td><td>String</td><td></td>
+                </tr>
+                
+    
+        </tbody>
+        </table>
+    </div>
+            </main> 
+            <br><br>
+            <footer>Powered by MRO</footer>
+        </body>
+        </html>
