@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Server-sent Events</title>
+  </head>
+  <body>
+    <p>Status:</p>
+    <div id="server-sent_status"></div>
+    <p>Time</p>
+    <div id="server-sent_time"></div>
+    <!-- <script>
+      const eventSource = new EventSource("/sync-time");
+      eventSource.onmessage = (event) => {
+        // append p with event.data to time div
+        const el = document.getElementById("time");
+
+        el.innerHTML = `${el.innerHTML}<p style="color: red">${event.data}</p>`;
+      };
+    </script> -->
+    <script>
+      const eventSource = new EventSource("/sync-time");
+      const serverSentTimeDiv = document.getElementById("server-sent_time");
+      const serverSentStatusDiv = document.getElementById("server-sent_status");
+
+      eventSource.addEventListener("message", (event) => {
+        serverSentTimeDiv.innerHTML = `<p>${event.data}</p>`;
+      });
+
+      eventSource.addEventListener("open", (event) => {
+        serverSentStatusDiv.innerHTML = `<p>Connected</p>`;
+      });
+
+      eventSource.addEventListener("error", (event) => {
+        switch (eventSource.readyState) {
+          case EventSource.CONNECTING:
+            serverSentStatusDiv.innerHTML = `<p>Connecting...</p>`;
+            break;
+          case EventSource.OPEN:
+            serverSentStatusDiv.innerHTML = `<p>Connected</p>`;
+            break;
+          case EventSource.CLOSED:
+            serverSentStatusDiv.innerHTML = `<p>Connection closed</p>`;
+            break;
+        }
+      });
+    </script>
+    <div id="time"></div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Server-side Events</title>
+  </head>
+  <body>
+    <h1>Server-side Events</h1>
+
+    <p>Status:</p>
+    <div id="server-sent_status"></div>
+    <p>Data:</p>
+    <div id="server-sent_data"></div>
+
+    <script>
+      const eventSource = new EventSource("http://localhost:8000/sync-time");
+      const serverSentDataDiv = document.getElementById("server-sent_data");
+      const serverSentStatusDiv = document.getElementById("server-sent_status");
+
+      eventSource.addEventListener("new_message", (event) => {
+        serverSentDataDiv.innerHTML = event.data;
+      });
+
+      eventSource.addEventListener("error", (event) => {
+        serverSentStatusDiv.innerHTML = "Connection closed";
+      });
+
+      eventSource.addEventListener("open", (event) => {
+        serverSentStatusDiv.innerHTML = "Connection opened";
+      });
+    </script>
+  </body>
+</html>
