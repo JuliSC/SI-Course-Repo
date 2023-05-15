@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multipart Forms</title>
+  </head>
+  <body>
+    <h1>Multipart Forms</h1>
+
+    <h2>Basic Form</h2>
+    <form action="http://127.0.0.1:8000/form" method="POST">
+      <input name="username" placeholder="Username" />
+      <input name="password" type="password" placeholder="Password" />
+      <button type="submit">Log In</button>
+    </form>
+
+    <h2>File Upload</h2>
+    <form
+      action="http://127.0.0.1:8000/fileform"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <input name="file" type="file" accept="image/*" />
+      <input name="description" placeholder="A short description of the file" />
+      <button type="submit">Upload</button>
+    </form>
+  </body>
+</html>
+
+<style>
+  body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+  }
+</style>

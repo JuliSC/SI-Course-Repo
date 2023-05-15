@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="da" class="position-relative">
+<head prefix="og: http://ogp.me/ns#">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+<link rel="dns-prefetch" href="//www.google-analytics.com" />
+<script>var proshopGtmServerDataLayer = [{}];</script>
+<script id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js" data-culture="DA" type="text/javascript"></script>
+<script type="text/javascript">
+var Consent = { cookieWarning: false, validCategories: ["functional", "statistic", "marketing"] };Consent.cookieWarning = true;Consent.isValid = function (category) { try { return CookieInformation.getConsentGivenFor('cookie_cat_' + category); } catch { return false; }};Consent.run = function (category, callback) { if (Consent.isValid(category)) { callback(); } };Consent.activateFor = function (category, callback) {if (Consent.isValid(category)) { callback(); } else {window.addEventListener('CookieInformationConsentGiven', function () { Consent.run(category, callback) }); }};
+</script>
+<script>Consent.activateFor('statistic', function () {window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date; ga('create', 'UA-2100889-1', 'auto');});</script>
+<script type="module">
+    window.dataLayer = window.dataLayer || [];
+    
+
+    function getElements() {
+        return document.querySelectorAll('[data-gtm]');
+    }
+    
+    getElements().forEach(el => {
+        window.dataLayer.push(JSON.parse(atob(el.dataset.gtm)));
+    });
+
+    let btns = document.querySelectorAll('button[data-gtm-item-id]');
+    btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            let gtmId = this.getAttribute('data-gtm-item-id');
+            getElements().forEach(el => {
+                var gtmJson = JSON.parse(atob(el.dataset.gtm));
+                for (var i = 0; i <= gtmJson.ecommerce.items.length; i++) {
+                    if (gtmJson.ecommerce.items[i].item_id !== gtmId) {
+                        continue;
+                    }
+                    window.dataLayer.push({ event: 'add_to_cart', ecommerce: { items: gtmJson.ecommerce.items[i] } });
+                    return;
+                }
+            });
+        },false);
+    });
+
+    //Set up eventlistenr that fires on buybutton and loops through ul - li's to see if line qty matches datalayer on btn   
+    let basketBuyBtn = document.querySelector('#CommerceBasketApp a.site-btn-tall-green');
+    if (basketBuyBtn) {
+        basketBuyBtn.addEventListener('click', function (e) {
+            let basketLines = document.querySelectorAll('#basketLines li input');
+            basketLines.forEach((element) => {
+                let gtmJson = JSON.parse(this.getAttribute("data-gtm-click"));
+                let theId = element.getAttribute("id");
+                for (let index = 0; gtmJson.ecommerce.items.length; index++) {
+                    if (gtmJson.ecommerce.items[index].item_id !== theId) {
+                        continue;
+                    }
+                    gtmJson.ecommerce.items[index].quantity = element.value;
+                    window.dataLayer.push({ ecommerce: null })
+                    window.dataLayer.push(gtmJson);
+                    break;
+                }
+            });
+        });
+    }
+
+    //Gennemløb paymentKnapper, tilføj listener, hvis klik så skub dataLayer
+    let paymentTypeButtons = document.getElementsByName("paymentOption");    
+    paymentTypeButtons.forEach(function (paymentTypeButton) {
+        paymentTypeButton.addEventListener('click', function () {
+            //event.preventDefault();
+            window.dataLayer.push({ ecommerce: null })
+            window.dataLayer.push(JSON.parse(atob(paymentTypeButton.getAttribute('data-gtm-payment'))));
+            //return false;
+        });
+    });
+    
+</script>
+<title></title>
+ <meta name="robots" content="noindex">
+<meta property="og:title" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="mstile-310x310.png" />
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+<link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="/favicon-128.png" sizes="128x128" />
+<meta name="application-name" content="PROSHOP" />
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+<meta name="msapplication-square70x70logo" content="/mstile-70x70.png" />
+<meta name="msapplication-square150x150logo" content="/mstile-150x150.png" />
+<meta name="msapplication-wide310x150logo" content="/mstile-310x150.png" />
+<meta name="msapplication-square310x310logo" content="/mstile-310x310.png" />
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="/dist/Proshop/site.1db5286b.css">
+<link rel="preload" href="/dist/Proshop/under.ce98caea.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/dist/under.ce98caea.css"></noscript>
+<script type="text/javascript" src="/Content/v-2040014113/scriptsBase.bundle.js" defer></script>
+<script src="/dist/js/menu.46227d20.js" defer></script>
+<script src="/dist/js/campaigns.282962c5.js" defer></script>
+<script src="/dist/js/common.618637e8.js" defer></script>
+<script src="/dist/js/shared.cca3fc04.js" defer></script>
+<script>Consent.activateFor('statistic', function () {return ga('send', 'pageview');});</script>
+<script type="text/javascript" src="" data-consent-src="/Scripts/Analytics/ga.min.js" data-category-consent="cookie_cat_statistic" defer></script>
+</head>
+<body id="siteContainer" data-version="1.0.8524.17205" data-cnet="1df6b731e6" data-lang="da-DK" data-site="proshop.dk">
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TD9SH4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script type="module">
+        (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-TD9SH4');
+        </script>
+<header class="fixed-top w-100"><div class="ps-container"><div class="ps-container__inner header__template"><div class="header__logo align-items-center">
+<a href="/" aria-label="Back to Home" id="logohome"><div data-vueapp="campaigns" class="empty" id="c9781b337da2f41c690c6b8d11590431b" element-id="9781b337-da2f-41c6-90c6-b8d11590431b" data="e30=">
+<div class="position-absolute" style="inset: 0 0; border: 1px solid #e8e8e8;"><div class="site-spinner position-absolute" style="left: 50%; bottom: 40%; transform: translate(-50%, 50%)"></div></div>
+</div>
+</a></div>
+<div class="header__search d-flex flex-nowrap">
+<div class="header__burger hidden-md hidden-lg mr-2" style="order: initial;">
+<button type="button" aria-label="Open menu" id="menu-button" class="pi-sm header__burger-menu navbar-toggle position-relative"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+<p class="header__text m-0 position-relative">Menu</p>
+</div>
+<div class="position-relative flex-1">
+<form action="/" method="GET">
+<input type="text" data-action="/ClientPlugins/AutoComplete/SearchResult" id="search-input" class="input__round-lg w-100 pr-5 site-search" role="search" name="s" placeholder="S&#248;g" title="S&#248;g" value="b&#230;rbar-computer">
+<button type="submit" aria-label="Search for products" class="input__round-btn green position-absolute d-flex justify-content-center align-items-center"><i class="pi-xs pi-search"></i></button>
+</form>
+</div>
+</div><div class="header__categories d-flex">
+<a href="/Kundeservice.htm" class="header__icon d-block"><i class="pi-sm pi-headphones-b m-auto d-block"></i><p class="header__text m-0">Hjælp</p></a><div class="header__icon input__new"><a id="logout" class="hidden btn__no-style dropdown-toggle w-100 position-relative" href="/CustomerCenter/CustomerAccount">
+<i class="pi-sm pi-login m-auto d-block position-relative"><small class='header__number-login position-absolute'><span class="pi-xxs pi-check-white"></span></small></i>
+<p id="loginButtonText" class="hidden-xs hidden-sm header__text m-0">Log ind</p>
+<p id="loginButtonTextSm" class="hidden-md hidden-lg header__text m-0">Min konto</p>
+</a>
+<button id="openLogin" type="button" class="btn__no-style w-100 position-relative" data-toggle="modal" data-target="#loginModal">
+<i class="pi-sm pi-login m-auto d-block position-relative"></i>
+<p id="loginButtonText" class="hidden-xs hidden-sm  hidden-sm header__text m-0">Log ind</p>
+<p id="loginButtonTextSm" class="hidden-md hidden-lg header__text m-0">Log ind</p>
+</button></div><div class="header__icon">
+<div id="minibasket" data-customerid>
+<form action="/Basket" class="form-horizontal" method="get"> <button type="submit" class="btn__no-style position-relative w-100" id="btnBasket"><i class="pi-sm pi-basket m-auto position-relative d-block"><small data-minibasketlinecount></small></i><p class="hidden-xs hidden-sm header__text m-0" data-minibasketprice data-toggle="tooltip" data-placement="bottom"></p><p class="hidden-md hidden-lg header__text m-0">Kurv</p></button>
+</form></div></div>
+</div></div></div></header><div class="header__shdw-top"></div><div id="search-result" class="position-relative"></div><div class="header__shdw-btm"></div>
+<section class="menu-top hidden-xs">
+<div class="ps-container">
+<div class="d-flex flex-nowrap">
+<a class="menu-top__cta menu-top__cta--bf" href="/Baerbar">B&#230;rbar</a>
+<a class="menu-top__cta menu-top__cta--bf" href="/Gaming">Gaming</a>
+<a class="menu-top__cta menu-top__cta--bf" href="/Mobil">Mobil</a>
+<a class="menu-top__cta menu-top__cta--bf" href="/Smart-Home">Smart Home</a>
+<a class="menu-top__cta menu-top__cta--bf" href="/SSD">SSD</a>
+<div class="menu-top__cta menu-top__cta--bf"><style>.menu-top__cta--bf:last-child{padding:0;width:32%;display:flex;justify-content:end}</style><a data-action="campaignClick" data-id="096e58a2-c1cf-4ac1-a2a3-1f17e258a656" data-name="TOP MENU" data-creative="8134364b-196b-4c0a-8c9f-36a740e19cf8" data-position="top-menu" style=padding-right:10%;color:#fff href=/Dutzo>DUTZO Gaming</a> <a data-action="campaignClick" data-id="096e58a2-c1cf-4ac1-a2a3-1f17e258a656" data-name="TOP MENU" data-creative="8134364b-196b-4c0a-8c9f-36a740e19cf8" data-position="top-menu" style=padding-right:10%;color:#fff href=/Proshop-Erhverv.htm>Erhverv</a> <a data-action="campaignClick" data-id="096e58a2-c1cf-4ac1-a2a3-1f17e258a656" data-name="TOP MENU" data-creative="8134364b-196b-4c0a-8c9f-36a740e19cf8" data-position="top-menu" style=color:#fff href=/100001>Gavekort</a></div>
+</div>
+</div>
+</section>
+<div class="site-background-banner visible-lg"><div data-vueapp="campaigns" class="empty" id="c7e0b6a0c586a4746b9e9dbb3ee6fefbb" element-id="7e0b6a0c-586a-4746-b9e9-dbb3ee6fefbb" data="e30=">
+<div class="position-absolute" style="inset: 0 0; border: 1px solid #e8e8e8;"><div class="site-spinner position-absolute" style="left: 50%; bottom: 40%; transform: translate(-50%, 50%)"></div></div>
+</div>
+</div>
+<div class="site-container-fullwidth">
+<div class="site-container ps-container position-relative pl-2">
+<div class="hidden-xs site-top-banner mb-2"><div data-vueapp="campaigns" class="empty" id="c3826f79ea49f4893b4c9fbd777c5bc24" element-id="3826f79e-a49f-4893-b4c9-fbd777c5bc24" data="e30=">
+<div class="position-absolute" style="inset: 0 0; border: 1px solid #e8e8e8;"><div class="site-spinner position-absolute" style="left: 50%; bottom: 40%; transform: translate(-50%, 50%)"></div></div>
+</div>
+</div>
+<div class="visible-xs site-top-banner-mobile mb-2"><div data-vueapp="campaigns" class="empty" id="c36bf536332f74dd0a2a4d6a1b8593864" element-id="36bf5363-32f7-4dd0-a2a4-d6a1b8593864" data="e30=">
+<div class="position-absolute" style="inset: 0 0; border: 1px solid #e8e8e8;"><div class="site-spinner position-absolute" style="left: 50%; bottom: 40%; transform: translate(-50%, 50%)"></div></div>
+</div>
+</div>
+<div class="row site-content-table">
+<main class="col-xs-12 col-md-9 col-md-push-3">
+<div class="site-bar-breadcrumbs mb-2 position-relative">
+<ol class="position-absolu te breadcrumb small" id="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">Forside</span></a><meta itemprop="position" content="1" /></li>
+<li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="/?s=b%C3%A6rbar-computer" itemprop="item"><span itemprop="name">bærbar-computer</span></a><meta itemprop="position" content="2" /></li> </ol></div>
+<div data-vueapp="campaigns" class="empty" id="c789f3012e2aa49f8a73c6ad59f4136bb" element-id="789f3012-e2aa-49f8-a73c-6ad59f4136bb" data="e30=">
+<div class="position-absolute" style="inset: 0 0; border: 1px solid #e8e8e8;"><div class="site-spinner position-absolute" style="left: 50%; bottom: 40%; transform: translate(-50%, 50%)"></div></div>
+</div>
+<div id="productList" class="new-design">
+<div class="site-active-results-container">
+<span>Produkter i din s&#248;gning: 2283</span>
+</div>
+<div class="site-filter-sorting clearfix">
+<div class="site-filter col-xs-12 col-sm-12">
+<ul class="list-inline row">
+<li class="dropdown position-relative">
+<form action="/Search/ProductSorting/?s=b%C3%A6rbar-computer" method="post">
+<a href="#" class="btn site-btn-between site-btn-between-white col-xs-12" data-toggle="dropdown">
+<p class="filter__btn-md">
+Sorter efter: Bedste match
+</p>
+<span class="glyphicon glyphicon-chevron-down pull-right position-relative"></span>
+</a>
+<ul class="dropdown-menu position-absolute" role="menu">
+<li class="col-xs-12 checkbox position-relative d-block">
+<a data-filter-action="select" data-target="#productList" data-target-effect="#products">Bedste match</a>
+<input checked="checked" class="hidden" data-val="true" data-val-required="The Sorter efter field is required." name="SortOrder.OrderBy" type="radio" value="Default" />
+</li>
+<li class="col-xs-12 checkbox position-relative d-block">
+<a data-filter-action="select" data-target="#productList" data-target-effect="#products">Pris <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+</svg></a>
+<input class="hidden" name="SortOrder.OrderBy" type="radio" value="SalesPrice" />
+</li>
+<li class="col-xs-12 checkbox position-relative d-block">
+<a data-filter-action="select" data-target="#productList" data-target-effect="#products">Pris <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z" />
+</svg></a>
+<input class="hidden" name="SortOrder.OrderBy" type="radio" value="SalesPriceDesc" />
+</li>
+<li class="col-xs-12 checkbox position-relative d-block">
+<a data-filter-action="select" data-target="#productList" data-target-effect="#products">Rabat %</a>
+<input class="hidden" name="SortOrder.OrderBy" type="radio" value="DiscountPercent" />
+</li>
+<li class="col-xs-12 checkbox position-relative d-block">
+<a data-filter-action="select" data-target="#productList" data-target-effect="#products">Popularitet</a>
+<input class="hidden" name="SortOrder.OrderBy" type="radio" value="Popularity" />
+</li>
+<li class="col-xs-12 checkbox position-relative d-block">
+<a data-filter-action="select" data-target="#productList" data-target-effect="#products">Alfabetisk</a>
+<input class="hidden" name="SortOrder.OrderBy" type="radio" value="DisplayName" />
+</li>
+<li class="col-xs-12 checkbox position-relative d-block">
+<a data-filter-action="select" data-target="#productList" data-target-effect="#products">Nyeste</a>
+<input class="hidden" name="SortOrder.OrderBy" type="radio" value="DateCreated" />
+</li>
+</ul>
+</form>
+</li>
+</ul>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12 col-sm-12 site-filter">
+<ul class="list-inline row" id="facets">
+<li class="dropdown site-filter position-relative facetCollection">
+<form action="/Search/ProductsByFacets/?s=b%C3%A6rbar-computer&amp;pre=0" method="GET">
+<input name="FacetId" type="hidden" value="CategoryFacetSetup" />
+<a href="#" data-action="facets" data-action-url="/Facets/MultiSelect?facetType=CategoryFacets&amp;facetSetupId=CategoryFacetSetup&amp;ck=1093274660" data-state="0" class="btn site-btn-between site-btn-between-white col-xs-12" data-toggle="dropdown"><p class="filter__btn-md">Kategori</p><span class="glyphicon glyphicon-chevron-down pull-right position-relative"></span></a>
+<ul class="dropdown-menu position-absolute site-dropdown" role="menu">
+<li class="col-xs-12"><div class="site-spinner"></div></li>
+</ul>
+</form>
+</li><li class="dropdown site-filter position-relative facetCollection">
+<form action="/Search/ProductsByFacets/?s=b%C3%A6rbar-computer&amp;pre=0" method="GET">
+<input name="FacetId" type="hidden" value="BrandFacetWithPopularitySetup" />
+<a href="#" data-action="facets" data-action-url="/Facets/MultiSelect?facetType=BrandFacetWithPopularitySetup&amp;facetSetupId=BrandFacetWithPopularitySetup&amp;ck=1093274660" data-state="0" class="btn site-btn-between site-btn-between-white col-xs-12" data-toggle="dropdown"><p class="filter__btn-md">Producent</p><span class="glyphicon glyphicon-chevron-down pull-right position-relative"></span></a>
+<ul class="dropdown-menu position-absolute site-dropdown" role="menu">
+<li class="col-xs-12"><div class="site-spinner"></div></li>
+</ul>
+</form>
+</li><li class="dropdown site-filter position-relative facetCollection">
+<form action="/Search/ProductsByFacets/?s=b%C3%A6rbar-computer&amp;pre=0" method="GET">
+<input name="FacetId" type="hidden" value="PriceFacetSetup" />
+<a href="#" data-action="facets" data-action-url="/Facets/SingleLinkSelect?facetType=PriceFacets&amp;facetSetupId=PriceFacetSetup&amp;ck=1093274660" data-state="0" class="btn site-btn-between site-btn-between-white col-xs-12" data-toggle="dropdown"><p class="filter__btn-md">Pris</p><span class="glyphicon glyphicon-chevron-down pull-right position-relative"></span></a>
+<ul class="dropdown-menu position-absolute site-dropdown" role="menu">
+<li class="col-xs-12"><div class="site-spinner"></div></li>
+</ul>
+</form>
+</li><li class="dropdown site-filter position-relative facetCollection">
+<form action="/Search/ProductsByFacets/?s=b%C3%A6rbar-computer&amp;pre=0" method="GET">
+<input name="FacetId" type="hidden" value="DeliveryStatusFacetSetup" />
+<a href="#" data-action="facets" data-action-url="/Facets/SingleLinkSelect?facetType=StockFacets&amp;facetSetupId=DeliveryStatusFacetSetup&amp;ck=1093274660" data-state="0" class="btn site-btn-between site-btn-between-white col-xs-12" data-toggle="dropdown"><p class="filter__btn-md">Lagerstatus</p><span class="glyphicon glyphicon-chevron-down pull-right position-relative"></span></a>
+<ul class="dropdown-menu position-absolute site-dropdown" role="menu">
+<li class="col-xs-12"><div class="site-spinner"></div></li>
+</ul>
+</form>
+</li> </ul>
+</div>
+</div>
+<ul class="site-panel list-unstyled site-row-margin-top" role="list" id="products" data-gtm="eyJldmVudCI6InZpZXdfaXRlbV9saXN0IiwiZWNvbW1lcmNlIjp7Iml0ZW1zIjpbeyJpdGVtX2lkIjoiMzEzMTM4NSIsIml0ZW1fbmFtZSI6IkFTVVMgRTE0MDRGQS1OSzEwMVcgLSAxNFwiIC0gUnl6ZW4gMy03MzIwVSAtIDhHQiBMUEREUjUgLyAyNTZHQiIsIml0ZW1fYnJhbmQiOiJBU1VTIiwiaXRlbV9jYXRlZ29yeSI6IkLmcmJhciIsInByaWNlIjozNzk5LjAwMDAwLCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzEyMTU2NyIsIml0ZW1fbmFtZSI6Ikxlbm92byBUaGlua1BhZCBYMSBZb2dhICgybmQgR2VuKSAtIDE0XCIgLSBDb3JlIGk3IDc2MDBVIC0gMTYgR0IgUkFNIC0gNTEyIEdCIFNTRCAtIDRHIExURSAtIFNjYW5kaW5hdmlhbiAtIFJlZnVyYmlzaGVkIiwiaXRlbV9icmFuZCI6Ikxlbm92byIsIml0ZW1fY2F0ZWdvcnkiOiJC5nJiYXIiLCJwcmljZSI6Mjc5OS4wMDAwMCwicXVhbnRpdHkiOjF9LHsiaXRlbV9pZCI6IjMxMzU3MjYiLCJpdGVtX25hbWUiOiJBU1VTIFRVRiBGQTUwN05WLUxQMDAyVyAtIDE1LjZcIiAtIFJ5emVuIDctNzczNUhTIC0gTnZpZGlhIEdlRm9yY2UgUlRYIDQwNjAgLSAxNkdCIEREUjUgLyAxVEIiLCJpdGVtX2JyYW5kIjoiQVNVUyIsIml0ZW1fY2F0ZWdvcnkiOiJC5nJiYXIiLCJwcmljZSI6MTE5OTkuMDAwMDAsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIyMjY2NzM2IiwiaXRlbV9uYW1lIjoiTWljcm8gYmF0dGVyaSB0aWwgYuZyYmFyIGNvbXB1dGVyIiwiaXRlbV9icmFuZCI6Ik1pY3JvIiwiaXRlbV9jYXRlZ29yeSI6IkJhdHRlcmkgdGlsIGLmcmJhcmUgY29tcHV0ZXJlIiwicHJpY2UiOjEwMC4wMDAsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIzMTIxNTgwIiwiaXRlbV9uYW1lIjoiTGVub3ZvIFRoaW5rUGFkIFQ0NzBzIC0gMTRcIiAtIENvcmUgaTUgNjMwMFUgLSAxMiBHQiBSQU0gLSAyNTYgR0IgU1NEIC0gU2NhbmRpbmF2aWFuIC0gUmVmdXJiaXNoZWQiLCJpdGVtX2JyYW5kIjoiTGVub3ZvIiwiaXRlbV9jYXRlZ29yeSI6IkLmcmJhciIsInByaWNlIjoyNTk5LjAwMDAwLCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzEzNTEwNSIsIml0ZW1fbmFtZSI6IlNhbXN1bmcgR2FsYXh5IEJvb2szIFBybyAoR3JhcGhpdGUpIC0gMTZcIiAtIGk1LTEzNDBQIEVWTyAtIEludGVsIElyaXMgWGUgLSAxNkdCIExQRERSNSAvIDUxMkdCIiwiaXRlbV9icmFuZCI6IlNhbXN1bmciLCJpdGVtX2NhdGVnb3J5IjoiQuZyYmFyIiwicHJpY2UiOjEzOTQ4LjAwMDAwLCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzEyMTcyNSIsIml0ZW1fbmFtZSI6Ikxlbm92byBUaGlua1BhZCBYMSBZb2dhICgybmQgR2VuKSAtIDE0XCIgLSBDb3JlIGk3IDc2MDBVIC0gMTYgR0IgUkFNIC0gNTEyIEdCIFNTRCAtIDRHIExURSAtIFNjYW5kaW5hdmlhbiAtIFJlZnVyYmlzaGVkIiwiaXRlbV9icmFuZCI6Ikxlbm92byIsIml0ZW1fY2F0ZWdvcnkiOiJC5nJiYXIiLCJwcmljZSI6MzI3OS4wMDAwMCwicXVhbnRpdHkiOjF9LHsiaXRlbV9pZCI6IjMxMzUwOTciLCJpdGVtX25hbWUiOiJTYW1zdW5nIEdhbGF4eSBCb29rMyBQcm8gMzYwIChCZWlnZSkgLSAxNlwiIC0gaTctMTM2MFAgRVZPIC0gSW50ZWwgSXJpcyBYZSAtIDE2R0IgTFBERFI1IC8gNTEyR0IgLSBUb3VjaHNjcmVlbiIsIml0ZW1fYnJhbmQiOiJTYW1zdW5nIiwiaXRlbV9jYXRlZ29yeSI6IkLmcmJhciIsInByaWNlIjoxNTU0OC4wMDAwMCwicXVhbnRpdHkiOjF9LHsiaXRlbV9pZCI6IjMxMzUwOTUiLCJpdGVtX25hbWUiOiJTYW1zdW5nIEdhbGF4eSBCb29rMyBVbHRyYSAoR3JhcGhpdGUpIC0gMTZcIiAtIGk3LTEzNzAwSCBFVk8gLSBOdmlkaWEgR2VGb3JjZSBSVFggNDA1MCA2R0IgR0REUjYgLSAxNkdCIExQRERSNSAvIDUxMkdCIiwiaXRlbV9icmFuZCI6IlNhbXN1bmciLCJpdGVtX2NhdGVnb3J5IjoiQuZyYmFyIiwicHJpY2UiOjIxOTI4LjAwMDAwLCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMjg3Mzc0NiIsIml0ZW1fbmFtZSI6Ikxlbm92byBUaGlua1BhZCBMNTYwIC8gUmVmdXJiaXNoZWQiLCJpdGVtX2JyYW5kIjoiTGVub3ZvIiwiaXRlbV9jYXRlZ29yeSI6IkLmcmJhciIsInByaWNlIjoxOTk5LjAwMDAwLCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzA0OTI3MSIsIml0ZW1fbmFtZSI6IlNhbXN1bmcgR2FsYXh5IEJvb2syIFBybyAtIDEzLjNcIiBBTU9MRUQgLyBDb3JlIGk3IC8gMTZHQiBSQU0gLyA1MTJHQiBTU0QiLCJpdGVtX2JyYW5kIjoiU2Ftc3VuZyIsIml0ZW1fY2F0ZWdvcnkiOiJC5nJiYXIiLCJwcmljZSI6MTA5OTkuMDAwMDAsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIzMTM1MTAzIiwiaXRlbV9uYW1lIjoiU2Ftc3VuZyBHYWxheHkgQm9vazMgUHJvIChCZWlnZSkgLSAxNFwiIC0gaTctMTM2MFAgRVZPIC0gSW50ZWwgSXJpcyBYZSAtIDE2R0IgTFBERFI1IC8gNTEyR0IiLCJpdGVtX2JyYW5kIjoiU2Ftc3VuZyIsIml0ZW1fY2F0ZWdvcnkiOiJC5nJiYXIiLCJwcmljZSI6MTM2OTkuMDAwMDAsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIzMTM1MTAxIiwiaXRlbV9uYW1lIjoiU2Ftc3VuZyBHYWxheHkgQm9vazMgUHJvIChHcmFwaGl0ZSkgLSAxNlwiIC0gaTctMTM2MFAgRVZPIC0gSW50ZWwgSXJpcyBYZSAtIDE2R0IgTFBERFI1IC8gNTEyR0IiLCJpdGVtX2JyYW5kIjoiU2Ftc3VuZyIsIml0ZW1fY2F0ZWdvcnkiOiJC5nJiYXIiLCJwcmljZSI6MTQ3NDguMDAwMDAsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIzMTM1MTA3IiwiaXRlbV9uYW1lIjoiU2Ftc3VuZyBHYWxheHkgQm9vazMgUHJvIChHcmFwaGl0ZSkgLSAxNFwiIC0gaTUtMTM0MFAgRVZPIC0gSW50ZWwgSXJpcyBYZSAtIDE2R0IgTFBERFI1IC8gNTEyR0IiLCJpdGVtX2JyYW5kIjoiU2Ftc3VuZyIsIml0ZW1fY2F0ZWdvcnkiOiJC5nJiYXIiLCJwcmljZSI6MTMzNDguMDAwMDAsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIzMDg4NDg2IiwiaXRlbV9uYW1lIjoiTGVub3ZvIFRoaW5rUGFkIFQxNiBHZW4gMSIsIml0ZW1fYnJhbmQiOiJMZW5vdm8iLCJpdGVtX2NhdGVnb3J5IjoiQuZyYmFyIiwicHJpY2UiOjk5OTkuMDAwMDAsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIzMTM1MDk5IiwiaXRlbV9uYW1lIjoiU2Ftc3VuZyBHYWxheHkgQm9vazMgUHJvIDM2MCAoR3JhcGhpdGUpIC0gMTZcIiAtIGk1LTEzNDBQIEVWTyAtIEludGVsIElyaXMgWGUgLSAxNkdCIExQRERSNSAvIDUxMkdCIC0gVG91Y2hzY3JlZW4iLCJpdGVtX2JyYW5kIjoiU2Ftc3VuZyIsIml0ZW1fY2F0ZWdvcnkiOiJC5nJiYXIiLCJwcmljZSI6MTQ4NDguMDAwMDAsInF1YW50aXR5IjoxfSx7Iml0ZW1faWQiOiIyMjIyOTA0IiwiaXRlbV9uYW1lIjoiS2Vuc2luZ3RvbiBMYXB0b3AgdGFza2UgU1AxMCBDbGFzc2ljIDE1LjYgc29ydCIsIml0ZW1fYnJhbmQiOiJLZW5zaW5ndG9uIiwiaXRlbV9jYXRlZ29yeSI6IlRhc2tlciIsInByaWNlIjoxODYuMDAwLCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzEwNTc3MiIsIml0ZW1fbmFtZSI6IkFjZXIgQXNwaXJlIDMgLSBQZW50aXVtIE42MDAwIC0gOEdCIC0gMjU2R0IgLSAxNy4zIElQUyBGSEQiLCJpdGVtX2JyYW5kIjoiQWNlciIsIml0ZW1fY2F0ZWdvcnkiOiJC5nJiYXIiLCJwcmljZSI6MzY5OS4wMDAwMCwicXVhbnRpdHkiOjF9LHsiaXRlbV9pZCI6IjMwMzM0NDIiLCJpdGVtX25hbWUiOiJBY2VyIEFzcGlyZSAxIEExMTUtMzEtQzQ4WCAtIElua2wuIE9mZmljZSAzNjVwIDEg5XIiLCJpdGVtX2JyYW5kIjoiQWNlciIsIml0ZW1fY2F0ZWdvcnkiOiJC5nJiYXIiLCJwcmljZSI6MjI5OS4wMDAwMCwicXVhbnRpdHkiOjF9LHsiaXRlbV9pZCI6IjMxMjY2NTQiLCJpdGVtX25hbWUiOiJMZW5vdm8gSWRlYVBhZCAxIDE0QU1ONyAtIDE0XCIgLSBSeXplbiA1IDc1MjBVIC0gOEdCIExQRERyNSAvIDI1NkdCIiwiaXRlbV9icmFuZCI6Ikxlbm92byIsIml0ZW1fY2F0ZWdvcnkiOiJC5nJiYXIiLCJwcmljZSI6MzU1NS4wMDAwMCwicXVhbnRpdHkiOjF9LHsiaXRlbV9pZCI6IjMxMjY2NTMiLCJpdGVtX25hbWUiOiJMZW5vdm8gSWRlYVBhZCAxIDE1QU1ONyAtIDE1LjZcIiAtIFJ5emVuIDUgNzUyMFUgLSA4R0IgTFBERHI1IC8gMjU2R0IiLCJpdGVtX2JyYW5kIjoiTGVub3ZvIiwiaXRlbV9jYXRlZ29yeSI6IkLmcmJhciIsInByaWNlIjozNTU1LjAwMDAwLCJxdWFudGl0eSI6MX0seyJpdGVtX2lkIjoiMzEwNjA0OSIsIml0ZW1fbmFtZSI6IkFjZXIgU3BpbiAxIDExLjZcIiAtIENlbGVyb24gTjQwMjAgRHVhbC1jb3JlIC0gNEdCIC0gNjRHQiBlTU1DIC0gV2luIDExIC0gVG91Y2hzY3JlZW4iLCJpdGVtX2JyYW5kIjoiQWNlciIsIml0ZW1fY2F0ZWdvcnkiOiJC5nJiYXIiLCJwcmljZSI6MTg0OS4wMDAwMCwicXVhbnRpdHkiOjF9LHsiaXRlbV9pZCI6IjMxNDUwMzciLCJpdGVtX25hbWUiOiJIdWF3ZWkgTWF0ZWJvb2sgMTQgLSAxNFwiICgyMTYweDE0NDApIC0gaTUtMTEzNUc3IC0gMTZHQiAtIDUxMkdCIC0gV2luZG93cyAxMSBIT01FIiwiaXRlbV9icmFuZCI6Ikh1YXdlaSIsIml0ZW1fY2F0ZWdvcnkiOiJC5nJiYXIiLCJwcmljZSI6NjM5OS4wMDAwMCwicXVhbnRpdHkiOjF9LHsiaXRlbV9pZCI6IjMxMDU3NjEiLCJpdGVtX25hbWUiOiJBY2VyIEFzcGlyZSAzIC0gMTUuNlwiIC0gSW50ZWwgUGVudGl1bSBTaWx2ZXIgTjUwMzAgLSA4IEdCIFJBTSAtIDEyOCBHQiBTU0QgLSBOb3JkaWMiLCJpdGVtX2JyYW5kIjoiQWNlciIsIml0ZW1fY2F0ZWdvcnkiOiJC5nJiYXIiLCJwcmljZSI6Mjc5OS4wMDAwMCwicXVhbnRpdHkiOjF9LHsiaXRlbV9pZCI6IjMxMzMxMDYiLCJpdGVtX25hbWUiOiJMZW5vdm8gVGhpbmtQYWQgVDQ3MHMgLSAxNFwiIC0gQ29yZSBpNSA3MzAwVSAtIDggR0IgUkFNIC0gNTEyIEdCIFNTRCAtIFJlZnVyYmlzaGVkIC8gVXBjeWNsZSBpdCIsIml0ZW1fYnJhbmQiOiJMZW5vdm8iLCJpdGVtX2NhdGVnb3J5IjoiQuZyYmFyIiwicHJpY2UiOjI3OTkuMDAwMDAsInF1YW50aXR5IjoxfV19fQ==">
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/ASUS-E1404FA-NK101W-14-Ryzen-3-7320U-8GB-LPDDR5-256GB/3131385"><img alt="Bærbar - ASUS E1404FA-NK101W - 14&quot; - Ryzen 3-7320U - 8GB LPDDR5 / 256GB - E1404FA-NK101W" height="100" src="/Images/150x100/3131385_cd523eb39d1f.jpg" width="150" /></a><small class="mt-1 site-productlist-item-productid">3131385</small>
+<div data-energy data-cpn="S27564637" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<a class="site-product-link" href="/Baerbar/ASUS-E1404FA-NK101W-14-Ryzen-3-7320U-8GB-LPDDR5-256GB/3131385">
+<h2 product-display-name>ASUS E1404FA-NK101W - 14&quot; - Ryzen 3-7320U - 8GB LPDDR5 / 256GB</h2>
+<div class="truncate-overflow">Bærbar fra ASUS med en<strong> AMD Ryzen 3-7320U</strong> processor med 4-Kerner & 8-Tråde, 8GB LPDDR5 & 256GB SSD<br><ul><strong> Specifikationer</strong><br><li>AMD Ryzen 3-7320U op til 4.1GHz<ul><li>4-Kerner & 8-Tråde</ul><li>8GB LPDDR5<li>256GB Gen3 NVMe M.2 SSD SSD <i>(Primær disk)</i><li>WiFi 6E (802.11ax) (Dualband) & Bluetooth 5<li>Windows 11 HOME</ul><ul><strong>Display</strong><li>14" IPS<li>1920x1080 @ 60Hz</ul><ul><strong>Highlights</strong><li>Anti-glare display</ul></div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">3.799,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(3.039,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3131385" />
+<input name="token" type="hidden" value="ce82dcc69656" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3131385">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<i class="site-image-discount-splash"><small>-13%</small></i>
+<a class="show" href="/Baerbar/Lenovo-ThinkPad-X1-Yoga-2nd-Gen-14-Core-i7-7600U-16-GB-RAM-512-GB-SSD-4G-LTE-Scandinavian-Refurbished/3121567"><img alt="Bærbar - Lenovo ThinkPad X1 Yoga (2nd Gen) - 14&quot; - Core i7 7600U - 16 GB RAM - 512 GB SSD - 4G LTE - Scandinavian - Refurbished - L-X1Y-SCA-P001" height="100" src="/Images/150x100/3121567_07727d0d2944.jpg" width="150" /></a><small class="mt-1 site-productlist-item-productid">3121567</small>
+<div data-energy data-cpn="S25981580" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">HOT</span>
+</div>
+<a class="site-product-link" href="/Baerbar/Lenovo-ThinkPad-X1-Yoga-2nd-Gen-14-Core-i7-7600U-16-GB-RAM-512-GB-SSD-4G-LTE-Scandinavian-Refurbished/3121567">
+<h2 product-display-name>Lenovo ThinkPad X1 Yoga (2nd Gen) - 14&quot; - Core i7 7600U - 16 GB RAM - 512 GB SSD - 4G LTE - Scandinavian - Refurbished</h2>
+<div class="truncate-overflow">Flipdesign, Intel Core i7 7600U / 2.8 GHz, Win 10 Pro 64-bit, HD Graphics 620, 16 GB RAM, 512 GB SSD, 14" IPS touchscreen 1920 x 1080 (Full HD), Wi-Fi 5, 4G LTE, sort, kbd: skandinavisk, istandsat, Barga1n+</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<div class="site-currency-pre">3.228,00 kr.</div>
+<span class="site-currency-lg">2.799,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(2.239,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3121567" />
+<input name="token" type="hidden" value="fd6c4859d5de" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3121567">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+ <i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/ASUS-TUF-FA507NV-LP002W-156-Ryzen-7-7735HS-Nvidia-GeForce-RTX-4060-16GB-DDR5-1TB/3135726"><img alt="Bærbar - ASUS TUF FA507NV-LP002W - 15.6&quot; - Ryzen 7-7735HS - Nvidia GeForce RTX 4060 - 16GB DDR5 / 1TB - FA507NV-LP002W" height="100" src="/Images/150x100/3135726_e6dac83cccc5.jpg" width="150" /></a><small class="mt-1 site-productlist-item-productid">3135726</small>
+<div data-energy data-cpn="S27553520" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<a class="site-product-link" href="/Baerbar/ASUS-TUF-FA507NV-LP002W-156-Ryzen-7-7735HS-Nvidia-GeForce-RTX-4060-16GB-DDR5-1TB/3135726">
+<h2 product-display-name>ASUS TUF FA507NV-LP002W - 15.6&quot; - Ryzen 7-7735HS - Nvidia GeForce RTX 4060 - 16GB DDR5 / 1TB</h2>
+<div class="truncate-overflow">AMD Ryzen 7 7735HS / 3.2 GHz, Win 11 Home, GeForce RTX 4060, 16 GB RAM, 1 TB SSD NVMe, 15.6" 1920 x 1080 (Full HD) @ 144 Hz, Wi-Fi 6, mecha-grå</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<div class="site-currency-pre">12.299,00 kr.</div>
+<span class="site-currency-lg">11.999,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(9.599,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3135726" />
+<input name="token" type="hidden" value="b7159796cb23" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3135726">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<i class="site-image-discount-splash"><small>-77%</small></i>
+<a class="show" href="/Batteri-til-baerbare-computere/Micro-batteri-til-baerbar-computer/2266736"><img alt="Batteri til bærbare computere - Micro batteri til bærbar computer - MBI2134" height="100" src="/Images/150x100/2266736_173faa9a8a73.jpg" width="150" /></a><small class="mt-1 site-productlist-item-productid">2266736</small>
+<div data-energy data-cpn="S9069078" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">KUN 1 TILBAGE P&#197; LAGER</span>
+</div>
+<a class="site-product-link" href="/Batteri-til-baerbare-computere/Micro-batteri-til-baerbar-computer/2266736">
+<h2 product-display-name>Micro batteri til b&#230;rbar computer</h2>
+<div class="truncate-overflow">Batteri til bærbar computer, 1 x 6-cellet 47 Wh</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<div class="site-currency-pre">438,00 kr.</div>
+<span class="site-currency-lg">100,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(80,00 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="2266736" />
+<input name="token" type="hidden" value="9870bd18d0c1" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="2266736">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Lenovo-ThinkPad-T470s-14-Core-i5-6300U-12-GB-RAM-256-GB-SSD-Scandinavian-Refurbished/3121580"><img alt="Bærbar - Lenovo ThinkPad T470s - 14&quot; - Core i5 6300U - 12 GB RAM - 256 GB SSD - Scandinavian - Refurbished - L-T470S-SCA-T004" height="100" src="/Images/150x100/3121580_e87b26fadac3.jpg" width="150" /></a><small class="mt-1 site-productlist-item-productid">3121580</small>
+<div data-energy data-cpn="S27351070" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<a class="site-product-link" href="/Baerbar/Lenovo-ThinkPad-T470s-14-Core-i5-6300U-12-GB-RAM-256-GB-SSD-Scandinavian-Refurbished/3121580">
+<h2 product-display-name>Lenovo ThinkPad T470s - 14&quot; - Core i5 6300U - 12 GB RAM - 256 GB SSD - Scandinavian - Refurbished</h2>
+<div class="truncate-overflow">Intel Core i5 6300U / 2.4 GHz, Win 10 Pro 64-bit, HD Graphics 520, 12 GB RAM, 256 GB SSD, 14" IPS 1920 x 1080 (Full HD), Wi-Fi 5, sort, kbd: skandinavisk, istandsat, T1A</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">2.599,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(2.079,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3121580" />
+<input name="token" type="hidden" value="932ae0b4f2d8" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3121580">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Samsung-Galaxy-Book3-Pro-Graphite-16-i5-1340P-EVO-Intel-Iris-Xe-16GB-LPDDR5-512GB/3135105"><img alt="Bærbar - Samsung Galaxy Book3 Pro (Graphite) - 16&quot; - i5-1340P EVO - Intel Iris Xe - 16GB LPDDR5 / 512GB - NP960XFG-KC5SE" class="lazy" data-src="/Images/150x100/3135105_2c0b14bbc46d.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3135105</small>
+<div data-energy data-cpn="S27699282" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">Inkl. The Freestyle Projektor</span>
+</div>
+<a class="site-product-link" href="/Baerbar/Samsung-Galaxy-Book3-Pro-Graphite-16-i5-1340P-EVO-Intel-Iris-Xe-16GB-LPDDR5-512GB/3135105">
+<h2 product-display-name>Samsung Galaxy Book3 Pro (Graphite) - 16&quot; - i5-1340P EVO - Intel Iris Xe - 16GB LPDDR5 / 512GB</h2>
+<div class="truncate-overflow">Bærbar fra Samsung med en<strong> Intel Core i5-1340P EVO</strong> processor & Intel<strong> Iris Xe</strong> grafikkort - 16GB LPDDR5/512GB<br><ul><strong> Specifikationer</strong><br><li>Intel Core i5-1340P EVO op til 4.6GHz<ul><li>12-Kerner & 16-Tråde</ul><li>Intel <strong>Iris Xe</strong><li>16GB LPDDR5<li>512GB NVMe SSD SSD <i>(Primær disk)</i><li>WiFi 6E<li>Windows 11</ul><ul><strong>Display</strong><li>16" AMOLED<li>2880x1800 @ 120Hz</ul><ul><strong>Highlights</strong><li>Dynamic AMOLED 2X monitor with 3K resolution, 120Hz refresh rate and 120% DCI-P3<li>Ultra thin & Light, only 12.5mm thick & 1.56kg<li>Thunderbolt 4</ul><strong>The Galaxy Ecosystem</strong><br>With the new Galaxy Book3 series, you can experience a seamless multi-device connectivity, connect your phone or tablet directly with your Galaxy Book3 notebook with the Samsung Multi Control, and control your PC, Galaxy tablet or Galaxy smartphone with the keyboard and trackpad from the Galaxy Book3. This enables you to copy and paste, or drag and drop between devices. <br>With the new Galaxy Book3 you can also use your Galaxy Tablet as a second monitor, or extend your monitor to the tablet for increased productivity.</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">13.948,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(11.158,40 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3135105" />
+<input name="token" type="hidden" value="1f0e1fe94b37" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3135105">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Lenovo-ThinkPad-X1-Yoga-2nd-Gen-14-Core-i7-7600U-16-GB-RAM-512-GB-SSD-4G-LTE-Scandinavian-Refurbished/3121725"><img alt="Bærbar - Lenovo ThinkPad X1 Yoga (2nd Gen) - 14&quot; - Core i7 7600U - 16 GB RAM - 512 GB SSD - 4G LTE - Scandinavian - Refurbished - L-X1Y-SCA-B001" class="lazy" data-src="/Images/150x100/3121725_2210d7e3bded.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3121725</small>
+<div data-energy data-cpn="S25981578" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<a class="site-product-link" href="/Baerbar/Lenovo-ThinkPad-X1-Yoga-2nd-Gen-14-Core-i7-7600U-16-GB-RAM-512-GB-SSD-4G-LTE-Scandinavian-Refurbished/3121725">
+<h2 product-display-name>Lenovo ThinkPad X1 Yoga (2nd Gen) - 14&quot; - Core i7 7600U - 16 GB RAM - 512 GB SSD - 4G LTE - Scandinavian - Refurbished</h2>
+<div class="truncate-overflow">Flipdesign, Intel Core i7 7600U / 2.8 GHz, Win 10 Pro 64-bit, HD Graphics 620, 16 GB RAM, 512 GB SSD, 14" IPS touchscreen 1920 x 1080 (Full HD), Wi-Fi 5, 4G LTE, sort, kbd: skandinavisk, istandsat, Barga1n</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">3.279,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(2.623,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3121725" />
+<input name="token" type="hidden" value="8ffc263273ad" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3121725">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Samsung-Galaxy-Book3-Pro-360-Beige-16-i7-1360P-EVO-Intel-Iris-Xe-16GB-LPDDR5-512GB-Touchscreen/3135097"><img alt="Bærbar - Samsung Galaxy Book3 Pro 360 (Beige) - 16&quot; - i7-1360P EVO - Intel Iris Xe - 16GB LPDDR5 / 512GB - Touchscreen - NP960QFG-KB1SE" class="lazy" data-src="/Images/150x100/3135097_baac8d0a8a71.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3135097</small>
+<div data-energy data-cpn="S27571959" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">Inkl. The Freestyle Projektor</span>
+</div>
+<a class="site-product-link" href="/Baerbar/Samsung-Galaxy-Book3-Pro-360-Beige-16-i7-1360P-EVO-Intel-Iris-Xe-16GB-LPDDR5-512GB-Touchscreen/3135097">
+<h2 product-display-name>Samsung Galaxy Book3 Pro 360 (Beige) - 16&quot; - i7-1360P EVO - Intel Iris Xe - 16GB LPDDR5 / 512GB - Touchscreen</h2>
+<div class="truncate-overflow">Bærbar med touchscreen fra Samsung med en<strong> Intel Core i7-1360P EVO</strong> processor & Intel<strong> Iris Xe</strong> grafikkort - 16GB LPDDR5/512GB<br><ul><strong> Specifikationer</strong><br><li>Intel Core i7-1360P EVO op til 5.0GHz<ul><li>12-Kerner & 16-Tråde</ul><li>Intel <strong>Iris Xe</strong><li>16GB LPDDR5<li>512GB NVMe SSD SSD <i>(Primær disk)</i><li>WiFi 6E<li>Windows 11</ul><ul><strong>Display</strong><li>16" AMOLED<li>2880x1800 @ 120Hz<li>Touchscreen<li>Flipscreen - 360</ul><ul><strong>Highlights</strong><li>S Pen included<li>Dynamic AMOLED 2X monitor with 3K resolution, 120Hz refresh rate and 120% DCI-P3<li>Thunderbolt 4</ul><strong>The Galaxy Ecosystem</strong><br>With the new Galaxy Book3 series, you can experience a seamless multi-device connectivity, connect your phone or tablet directly with your Galaxy Book3 notebook with the Samsung Multi Control, and control your PC, Galaxy tablet or Galaxy smartphone with the keyboard and trackpad from the Galaxy Book3. This enables you to copy and paste, or drag and drop between devices. <br>With the new Galaxy Book3 you can also use your Galaxy Tablet as a second monitor, or extend your monitor to the tablet for increased productivity.</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">15.548,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(12.438,40 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3135097" />
+<input name="token" type="hidden" value="29aa0389a24f" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3135097">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+ <div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Samsung-Galaxy-Book3-Ultra-Graphite-16-i7-13700H-EVO-Nvidia-GeForce-RTX-4050-6GB-GDDR6-16GB-LPDDR5-512GB/3135095"><img alt="Bærbar - Samsung Galaxy Book3 Ultra (Graphite) - 16&quot; - i7-13700H EVO - Nvidia GeForce RTX 4050 6GB GDDR6 - 16GB LPDDR5 / 512GB - NP960XFH-XA1SE" class="lazy" data-src="/Images/150x100/3135095_790e1533fda6.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3135095</small>
+<div data-energy data-cpn="S27571957" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">Inkl. The Freestyle Projektor</span>
+</div>
+<a class="site-product-link" href="/Baerbar/Samsung-Galaxy-Book3-Ultra-Graphite-16-i7-13700H-EVO-Nvidia-GeForce-RTX-4050-6GB-GDDR6-16GB-LPDDR5-512GB/3135095">
+<h2 product-display-name>Samsung Galaxy Book3 Ultra (Graphite) - 16&quot; - i7-13700H EVO - Nvidia GeForce RTX 4050 6GB GDDR6 - 16GB LPDDR5 / 512GB</h2>
+<div class="truncate-overflow">Bærbar fra Samsung med en<strong> Intel Core i7-13700H EVO</strong> processor & Nvidia GeForce<strong> RTX 4050 6GB GDDR6</strong> grafikkort - 16GB LPDDR5/512GB<br><ul><strong> Specifikationer</strong><br><li>Intel Core i7-13700H EVO op til 5.0GHz<ul><li>14-Kerner & 20-Tråde</ul><li>Nvidia GeForce <strong>RTX 4050 6GB GDDR6</strong><li>16GB LPDDR5<li>512GB NVMe SSD SSD <i>(Primær disk)</i><li>WiFi 6E<li>Windows 11</ul><ul><strong>Display</strong><li>16" AMOLED<li>2880x1800 @ 120Hz</ul><ul><strong>Highlights</strong><li>Dynamic AMOLED 2X monitor with 3K resolution, 120Hz refresh rate and 120% DCI-P3<li>Ultra thin & Light, only 16.5mm thick & 1.79kg<li>Thunderbolt 4</ul><strong>The Galaxy Ecosystem</strong><br>With the new Galaxy Book3 series, you can experience a seamless multi-device connectivity, connect your phone or tablet directly with your Galaxy Book3 notebook with the Samsung Multi Control, and control your PC, Galaxy tablet or Galaxy smartphone with the keyboard and trackpad from the Galaxy Book3. This enables you to copy and paste, or drag and drop between devices. <br>With the new Galaxy Book3 you can also use your Galaxy Tablet as a second monitor, or extend your monitor to the tablet for increased productivity.</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">21.928,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(17.542,40 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3135095" />
+<input name="token" type="hidden" value="d6ad4c9061e3" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3135095">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+ <span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<i class="site-image-discount-splash"><small>-16%</small></i>
+<a class="show" href="/Baerbar/Lenovo-ThinkPad-L560-Refurbished/2873746"><img alt="Bærbar - Lenovo ThinkPad L560 / Refurbished - L-L560-SCA-T002" class="lazy" data-src="/Images/150x100/2873746_92d1df4f2201.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">2873746</small>
+<div data-energy data-cpn="S23669644" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<a class="site-product-link" href="/Baerbar/Lenovo-ThinkPad-L560-Refurbished/2873746">
+<h2 product-display-name>Lenovo ThinkPad L560 / Refurbished</h2>
+<div class="truncate-overflow">Intel Core i7 6600U / 2.6 GHz, Win 10 Pro 64-bit, HD Graphics 520, 8 GB RAM, 256 GB SSD TCG Opal Encryption 2, 15.6" IPS 1920 x 1080 (Full HD), sort, kbd: Nordisk, istandsat, T1A</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<div class="site-currency-pre">2.399,00 kr.</div>
+<span class="site-currency-lg">1.999,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(1.599,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="2873746" />
+<input name="token" type="hidden" value="372c5281e16d" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="2873746">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+ <div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Samsung-Galaxy-Book2-Pro-133-AMOLED-Core-i7-16GB-RAM-512GB-SSD/3049271"><img alt="Bærbar - Samsung Galaxy Book2 Pro - 13.3&quot; AMOLED / Core i7 / 16GB RAM / 512GB SSD - NP930XED-KA2SE" class="lazy" data-src="/Images/150x100/3049271_cdd79c30e91c.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3049271</small>
+<div data-energy data-cpn="S26576727" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">INKL. SAMSUNG Smart Monitor M5 27&quot; SK&#198;RM</span>
+<span class="btn site-image-badge-default">F&#197; P&#197; LAGER</span>
+</div>
+<a class="site-product-link" href="/Baerbar/Samsung-Galaxy-Book2-Pro-133-AMOLED-Core-i7-16GB-RAM-512GB-SSD/3049271">
+<h2 product-display-name>Samsung Galaxy Book2 Pro - 13.3&quot; AMOLED / Core i7 / 16GB RAM / 512GB SSD</h2>
+<div class="truncate-overflow">Core i7 1260P / 2.1 GHz, Evo, Win 11 Home, Iris Xe Graphics, 16 GB RAM, 512 GB SSD NVMe, 13.3" AMOLED 1920 x 1080 (Full HD), Wi-Fi 6, grafit</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">10.999,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(8.799,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3049271" />
+<input name="token" type="hidden" value="693279cf46a2" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3049271">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Samsung-Galaxy-Book3-Pro-Beige-14-i7-1360P-EVO-Intel-Iris-Xe-16GB-LPDDR5-512GB/3135103"><img alt="Bærbar - Samsung Galaxy Book3 Pro (Beige) - 14&quot; - i7-1360P EVO - Intel Iris Xe - 16GB LPDDR5 / 512GB - NP940XFG-KA1SE" class="lazy" data-src="/Images/150x100/3135103_c70d380647dc.png" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3135103</small>
+<div data-energy data-cpn="S27571960" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">Inkl. The Freestyle Projektor</span>
+</div>
+<a class="site-product-link" href="/Baerbar/Samsung-Galaxy-Book3-Pro-Beige-14-i7-1360P-EVO-Intel-Iris-Xe-16GB-LPDDR5-512GB/3135103">
+<h2 product-display-name>Samsung Galaxy Book3 Pro (Beige) - 14&quot; - i7-1360P EVO - Intel Iris Xe - 16GB LPDDR5 / 512GB</h2>
+<div class="truncate-overflow">Intel Core i7, Win 11 Home, Iris Xe Graphics, 16 GB RAM, 512 GB SSD NVMe, 14" AMOLED 2880 x 1800 (WQXGA+), beige</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">13.699,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(10.959,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3135103" />
+<input name="token" type="hidden" value="21ae38e2b4e2" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3135103">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Samsung-Galaxy-Book3-Pro-Graphite-16-i7-1360P-EVO-Intel-Iris-Xe-16GB-LPDDR5-512GB/3135101"><img alt="Bærbar - Samsung Galaxy Book3 Pro (Graphite) - 16&quot; - i7-1360P EVO - Intel Iris Xe - 16GB LPDDR5 / 512GB - NP960XFG-KC6SE" class="lazy" data-src="/Images/150x100/3135101_bf4510431c91.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3135101</small>
+<div data-energy data-cpn="S27571958" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">Inkl. The Freestyle Projektor</span>
+</div>
+<a class="site-product-link" href="/Baerbar/Samsung-Galaxy-Book3-Pro-Graphite-16-i7-1360P-EVO-Intel-Iris-Xe-16GB-LPDDR5-512GB/3135101">
+<h2 product-display-name>Samsung Galaxy Book3 Pro (Graphite) - 16&quot; - i7-1360P EVO - Intel Iris Xe - 16GB LPDDR5 / 512GB</h2>
+<div class="truncate-overflow">Bærbar fra Samsung med en<strong> Intel Core i7-1360P EVO</strong> processor & Intel<strong> Iris Xe</strong> grafikkort - 16GB LPDDR5/512GB<br><ul><strong> Specifikationer</strong><br><li>Intel Core i7-1360P EVO op til 5.0GHz<ul><li>12-Kerner & 16-Tråde</ul><li>Intel <strong>Iris Xe</strong><li>16GB LPDDR5<li>512GB NVMe SSD SSD <i>(Primær disk)</i><li>WiFi 6E<li>Windows 11</ul><ul><strong>Display</strong><li>16" AMOLED<li>2880x1800 @ 120Hz</ul><ul><strong>Highlights</strong><li>Dynamic AMOLED 2X monitor with 3K resolution, 120Hz refresh rate and 120% DCI-P3<li>Ultra thin & Light, only 12.5mm thick & 1.56kg<li>Thunderbolt 4</ul><strong>The Galaxy Ecosystem</strong><br>With the new Galaxy Book3 series, you can experience a seamless multi-device connectivity, connect your phone or tablet directly with your Galaxy Book3 notebook with the Samsung Multi Control, and control your PC, Galaxy tablet or Galaxy smartphone with the keyboard and trackpad from the Galaxy Book3. This enables you to copy and paste, or drag and drop between devices. <br>With the new Galaxy Book3 you can also use your Galaxy Tablet as a second monitor, or extend your monitor to the tablet for increased productivity.</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">14.748,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(11.798,40 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3135101" />
+<input name="token" type="hidden" value="e623a4bf82fc" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3135101">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Samsung-Galaxy-Book3-Pro-Graphite-14-i5-1340P-EVO-Intel-Iris-Xe-16GB-LPDDR5-512GB/3135107"><img alt="Bærbar - Samsung Galaxy Book3 Pro (Graphite) - 14&quot; - i5-1340P EVO - Intel Iris Xe - 16GB LPDDR5 / 512GB - NP940XFG-KC3SE" class="lazy" data-src="/Images/150x100/3135107_80c503045ae1.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3135107</small>
+<div data-energy data-cpn="S27695176" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">Inkl. The Freestyle Projektor</span>
+</div>
+<a class="site-product-link" href="/Baerbar/Samsung-Galaxy-Book3-Pro-Graphite-14-i5-1340P-EVO-Intel-Iris-Xe-16GB-LPDDR5-512GB/3135107">
+<h2 product-display-name>Samsung Galaxy Book3 Pro (Graphite) - 14&quot; - i5-1340P EVO - Intel Iris Xe - 16GB LPDDR5 / 512GB</h2>
+<div class="truncate-overflow">Bærbar fra Samsung med en<strong> Intel Core i5-1340P EVO</strong> processor & Intel<strong> Iris Xe</strong> grafikkort - 16GB LPDDR5/512GB<br><ul><strong> Specifikationer</strong><br><li>Intel Core i5-1340P EVO op til 4.6GHz<ul><li>12-Kerner & 16-Tråde</ul><li>Intel <strong>Iris Xe</strong><li>16GB LPDDR5<li>512GB NVMe SSD SSD <i>(Primær disk)</i><li>WiFi 6E<li>Windows 11</ul><ul><strong>Display</strong><li>14" AMOLED<li>2880x1800 @ 120Hz</ul><ul><strong>Highlights</strong><li>Dynamic AMOLED 2X monitor with 3K resolution, 120Hz refresh rate and 120% DCI-P3<li>Ultra thin & Light, only 11.3mm thick & 1.17kg<li>Thunderbolt 4</ul><strong>The Galaxy Ecosystem</strong><br>With the new Galaxy Book3 series, you can experience a seamless multi-device connectivity, connect your phone or tablet directly with your Galaxy Book3 notebook with the Samsung Multi Control, and control your PC, Galaxy tablet or Galaxy smartphone with the keyboard and trackpad from the Galaxy Book3. This enables you to copy and paste, or drag and drop between devices. <br>With the new Galaxy Book3 you can also use your Galaxy Tablet as a second monitor, or extend your monitor to the tablet for increased productivity.</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">13.348,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(10.678,40 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3135107" />
+<input name="token" type="hidden" value="7e05622f9eab" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3135107">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Lenovo-ThinkPad-T16-Gen-1/3088486"><img alt="Bærbar - Lenovo ThinkPad T16 Gen 1 - 21BV00APMX" class="lazy" data-src="/Images/150x100/3088486_f356d20f1199.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3088486</small>
+<div data-energy data-cpn="S26921987" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<a class="site-product-link" href="/Baerbar/Lenovo-ThinkPad-T16-Gen-1/3088486">
+<h2 product-display-name>Lenovo ThinkPad T16 Gen 1</h2>
+<div class="truncate-overflow">180° hængselsdesign, Intel Core i5 1235U / 1.3 GHz, Win 10 Pro 64-bit (inkluderer Win 11 Pro License), Intel Iris Xe Graphics, 16 GB RAM, 256 GB SSD TCG Opal Encryption 2, NVMe, 16" IPS 1920 x 1200, 802.11a/b/g/n/ac/ax (Wi-Fi 6E), tordensort, kbd: nordisk (dansk/finsk/norsk/svensk), med 3 års Lenovo Premier Support, CO2 Offset 1,5 ton</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<div class="site-currency-pre">10.303,00 kr.</div>
+<span class="site-currency-lg">9.999,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(7.999,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3088486" />
+<input name="token" type="hidden" value="f49b527b1996" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3088486">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Samsung-Galaxy-Book3-Pro-360-Graphite-16-i5-1340P-EVO-Intel-Iris-Xe-16GB-LPDDR5-512GB-Touchscreen/3135099"><img alt="Bærbar - Samsung Galaxy Book3 Pro 360 (Graphite) - 16&quot; - i5-1340P EVO - Intel Iris Xe - 16GB LPDDR5 / 512GB - Touchscreen - NP960QFG-KA3SE" class="lazy" data-src="/Images/150x100/3135099_d6af0bb7528c.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3135099</small>
+<div data-energy data-cpn="S27695177" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">Inkl. The Freestyle Projektor</span>
+</div>
+<a class="site-product-link" href="/Baerbar/Samsung-Galaxy-Book3-Pro-360-Graphite-16-i5-1340P-EVO-Intel-Iris-Xe-16GB-LPDDR5-512GB-Touchscreen/3135099">
+<h2 product-display-name>Samsung Galaxy Book3 Pro 360 (Graphite) - 16&quot; - i5-1340P EVO - Intel Iris Xe - 16GB LPDDR5 / 512GB - Touchscreen</h2>
+<div class="truncate-overflow">Bærbar med touchscreen fra Samsung med en<strong> Intel Core i5-1340P EVO</strong> processor & Intel<strong> Iris Xe</strong> grafikkort - 16GB LPDDR5/512GB<br><ul><strong> Specifikationer</strong><br><li>Intel Core i5-1340P EVO op til 4.6GHz<ul><li>12-Kerner & 16-Tråde</ul><li>Intel <strong>Iris Xe</strong><li>16GB LPDDR5<li>512GB NVMe SSD SSD <i>(Primær disk)</i><li>WiFi 6E<li>Windows 11</ul><ul><strong>Display</strong><li>16" AMOLED<li>2880x1800 @ 120Hz<li>Touchscreen<li>Flipscreen - 360</ul><ul><strong>Highlights</strong><li>S Pen included<li>Dynamic AMOLED 2X monitor with 3K resolution, 120Hz refresh rate and 120% DCI-P3<li>Thunderbolt 4</ul><strong>The Galaxy Ecosystem</strong><br>With the new Galaxy Book3 series, you can experience a seamless multi-device connectivity, connect your phone or tablet directly with your Galaxy Book3 notebook with the Samsung Multi Control, and control your PC, Galaxy tablet or Galaxy smartphone with the keyboard and trackpad from the Galaxy Book3. This enables you to copy and paste, or drag and drop between devices. <br>With the new Galaxy Book3 you can also use your Galaxy Tablet as a second monitor, or extend your monitor to the tablet for increased productivity.</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">14.848,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(11.878,40 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3135099" />
+<input name="token" type="hidden" value="c3cdc41af75b" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3135099">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Tasker/Kensington-Laptop-taske-SP10-Classic-156-sort/2222904"><img alt="Tasker - Kensington Laptop taske SP10 Classic 15.6 sort - K62562EU" class="lazy" data-src="/Images/150x100/2222904_aabd9462826e.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">2222904</small>
+<div data-energy data-cpn="S5531545" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">F&#197; P&#197; LAGER</span>
+</div>
+<a class="site-product-link" href="/Tasker/Kensington-Laptop-taske-SP10-Classic-156-sort/2222904">
+<h2 product-display-name>Kensington Laptop taske SP10 Classic 15.6 sort</h2>
+<div class="truncate-overflow"><strong>En klassisk laptop taske til når du er på farten. </strong><br>Kensington SP10 15.6" tasken beskytter din laptop med et <strong>slidstærk nylon udvendigt</strong>, der er hårdfør nok til at rejse meget rundt med dig. <br>- Højkvalitets neopren hylster beskytter din laptop eller ultrabook <br>- Opbevar din laptop eller ultrabook og tilbehør i denne taske, der passer til op til 15.6''/39.6 cm enheder <br>- Lommer på begge sider er idelle til opbevaring af opladere og kabler, når du rejser rundt<br>- Forstærkede bærehåndtag giver dig mulighed for nemt at transportere din enhed, mens du reducerer bekymringen, at den bliver tabt eller beskadiget <br>- Aftagelig polstret skulderrem <br>- Ekstremt blød fleeceforing beskytter din enhed mod ridser</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">186,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(148,80 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="2222904" />
+ <input name="token" type="hidden" value="4b6728051c0d" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="2222904">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Acer-Aspire-3-Pentium-N6000-8GB-256GB-173-IPS-FHD/3105772"><img alt="Bærbar - Acer Aspire 3 - Pentium N6000 - 8GB - 256GB - 17.3 IPS FHD - NX.A6TED.017" class="lazy" data-src="/Images/150x100/3105772_36b868d0e6c8.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3105772</small>
+<div data-energy data-cpn="S27299334" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<a class="site-product-link" href="/Baerbar/Acer-Aspire-3-Pentium-N6000-8GB-256GB-173-IPS-FHD/3105772">
+<h2 product-display-name>Acer Aspire 3 - Pentium N6000 - 8GB - 256GB - 17.3 IPS FHD</h2>
+<div class="truncate-overflow">Intel Pentium Silver N6000 / 1.1 GHz, Win 11 Home, UHD Graphics, 8 GB RAM, 256 GB SSD, 17.3" IPS 1920 x 1080 (Full HD), Wi-Fi 5, rent sølv, kbd: nordisk (dansk/finsk/norsk/svensk)</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">3.699,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(2.959,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3105772" />
+<input name="token" type="hidden" value="335678c24754" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3105772">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+ </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Acer-Aspire-1-A115-31-C48X-Inkl-Office-365p-1-aar/3033442"><img alt="Bærbar - Acer Aspire 1 A115-31-C48X - Inkl. Office 365p 1 år - NX.A6QED.005" class="lazy" data-src="/Images/150x100/3033442_51cc8ee9377f.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3033442</small>
+<div data-energy data-cpn="S26495162" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">HOT</span>
+</div>
+<a class="site-product-link" href="/Baerbar/Acer-Aspire-1-A115-31-C48X-Inkl-Office-365p-1-aar/3033442">
+<h2 product-display-name>Acer Aspire 1 A115-31-C48X - Inkl. Office 365p 1 &#229;r</h2>
+<div class="truncate-overflow"><strong>Celeron N4120</strong> / 1.1 GHz, Win 11 Home in S mode, UHD Graphics 600, 4 GB RAM, 128 GB eMMC, <strong>15.6" 1920 x 1080 (Full HD), Wi-Fi 5</strong>, charcoal black, kbd: Nordisk</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">2.299,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(1.839,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3033442" />
+<input name="token" type="hidden" value="dbeb21bb7c0c" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3033442">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Lenovo-IdeaPad-1-14AMN7-14-Ryzen-5-7520U-8GB-LPDDr5-256GB/3126654"><img alt="Bærbar - Lenovo IdeaPad 1 14AMN7 - 14&quot; - Ryzen 5 7520U - 8GB LPDDr5 / 256GB - 82VF003BMX" class="lazy" data-src="/Images/150x100/3126654_586b8d3fb99a.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3126654</small>
+<div data-energy data-cpn="S27504589" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">HOT</span>
+</div>
+<a class="site-product-link" href="/Baerbar/Lenovo-IdeaPad-1-14AMN7-14-Ryzen-5-7520U-8GB-LPDDr5-256GB/3126654">
+<h2 product-display-name>Lenovo IdeaPad 1 14AMN7 - 14&quot; - Ryzen 5 7520U - 8GB LPDDr5 / 256GB</h2>
+<div class="truncate-overflow">AMD Ryzen 5 7520U / 2.8 GHz, Win 11 Home, Radeon 610M, 8 GB RAM, 256 GB SSD NVMe, 14" TN 1920 x 1080 (Full HD), Wi-Fi 6, skygrå, kbd: nordisk (dansk/finsk/norsk/svensk), med 3 måneder Lenovo Premium Care</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<div class="site-currency-pre">3.632,00 kr.</div>
+<span class="site-currency-lg">3.555,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(2.844,00 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3126654" />
+<input name="token" type="hidden" value="627c5fdd4cb6" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3126654">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<i class="site-image-discount-splash"><small>-11%</small></i>
+<a class="show" href="/Baerbar/Lenovo-IdeaPad-1-15AMN7-156-Ryzen-5-7520U-8GB-LPDDr5-256GB/3126653"><img alt="Bærbar - Lenovo IdeaPad 1 15AMN7 - 15.6&quot; - Ryzen 5 7520U - 8GB LPDDr5 / 256GB - 82VG0077MX" class="lazy" data-src="/Images/150x100/3126653_724eb13c4d76.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3126653</small>
+<div data-energy data-cpn="S27511859" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">HOT</span>
+</div>
+<a class="site-product-link" href="/Baerbar/Lenovo-IdeaPad-1-15AMN7-156-Ryzen-5-7520U-8GB-LPDDr5-256GB/3126653">
+<h2 product-display-name>Lenovo IdeaPad 1 15AMN7 - 15.6&quot; - Ryzen 5 7520U - 8GB LPDDr5 / 256GB</h2>
+<div class="truncate-overflow">Bærbar fra Lenovo med en<strong> AMD Ryzen 5 7520U</strong> processor med 4-Kerner & 8-Tråde, 8GB LPDDr5 & 256GB SSD<br><ul><strong> Specifikationer</strong><br><li>AMD Ryzen 5 7520U op til 4.3GHz<ul><li>4-Kerner & 8-Tråde</ul><li>8GB LPDDr5 5500MHz<li>256GB Gen4 NVMe M.2 SSD <i>(Primær disk)</i><li>WiFi 6 & Bluetooth 5.1<li>Windows 11 HOME</ul><ul><strong>Display</strong><li>15.6" TN<li>1920x1080</ul></div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<div class="site-currency-pre">4.034,00 kr.</div>
+<span class="site-currency-lg">3.555,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(2.844,00 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3126653" />
+<input name="token" type="hidden" value="756d7c9a7ffb" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3126653">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Acer-Spin-1-116-Celeron-N4020-Dual-core-4GB-64GB-eMMC-Win-11-Touchscreen/3106049"><img alt="Bærbar - Acer Spin 1 11.6&quot; - Celeron N4020 Dual-core - 4GB - 64GB eMMC - Win 11 - Touchscreen - NX.H0UED.01F" class="lazy" data-src="/Images/150x100/3106049_34f05a63b060.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3106049</small>
+<div data-energy data-cpn="S27321541" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<a class="site-product-link" href="/Baerbar/Acer-Spin-1-116-Celeron-N4020-Dual-core-4GB-64GB-eMMC-Win-11-Touchscreen/3106049">
+<h2 product-display-name>Acer Spin 1 11.6&quot; - Celeron N4020 Dual-core - 4GB - 64GB eMMC - Win 11 - Touchscreen</h2>
+<div class="truncate-overflow">Flipdesign, Intel Celeron N4020 / 1.1 GHz, Win 11 Home in S mode, UHD Graphics 600, 4 GB RAM, 64 GB eMMC, 11.6" touchscreen 1366 x 768 (HD), Wi-Fi 5, obsidian sort, kbd: Nordisk</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">1.849,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(1.479,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3106049" />
+<input name="token" type="hidden" value="e29a10a20d94" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3106049">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<a class="show" href="/Baerbar/Huawei-Matebook-14-14-2160x1440-i5-1135G7-16GB-512GB-Windows-11-HOME/3145037"><img alt="Bærbar - Huawei Matebook 14 - 14&quot; (2160x1440) - i5-1135G7 - 16GB - 512GB - Windows 11 HOME - 53012PHC" class="lazy" data-src="/Images/150x100/3145037_aa578fa25c72.png" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3145037</small>
+<div data-energy data-cpn="S26503419" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<a class="site-product-link" href="/Baerbar/Huawei-Matebook-14-14-2160x1440-i5-1135G7-16GB-512GB-Windows-11-HOME/3145037">
+<h2 product-display-name>Huawei Matebook 14 - 14&quot; (2160x1440) - i5-1135G7 - 16GB - 512GB - Windows 11 HOME</h2>
+<div class="truncate-overflow">Intel Core i5 1135G7, Win 11 Home, Iris Xe Graphics, 16 GB RAM, 512 GB SSD NVMe, 14" IPS 2160 x 1440 (2K), Wi-Fi 6, space grey</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<span class="site-currency-lg">6.399,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(5.119,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3145037" />
+<input name="token" type="hidden" value="6807e8d7d90f" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3145037">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<i class="site-image-discount-splash"><small>-6%</small></i>
+<a class="show" href="/Baerbar/Acer-Aspire-3-156-Intel-Pentium-Silver-N5030-8-GB-RAM-128-GB-SSD-Nordic/3105761"><img alt="Bærbar - Acer Aspire 3 - 15.6&quot; - Intel Pentium Silver N5030 - 8 GB RAM - 128 GB SSD - Nordic - NX.HXDED.00E" class="lazy" data-src="/Images/150x100/3105761_736365f715a0.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3105761</small>
+<div data-energy data-cpn="S27299336" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<div class="site-image-badge-container-sm">
+<span class="btn site-image-badge-default">HOT</span>
+</div>
+<a class="site-product-link" href="/Baerbar/Acer-Aspire-3-156-Intel-Pentium-Silver-N5030-8-GB-RAM-128-GB-SSD-Nordic/3105761">
+<h2 product-display-name>Acer Aspire 3 - 15.6&quot; - Intel Pentium Silver N5030 - 8 GB RAM - 128 GB SSD - Nordic</h2> 
+<div class="truncate-overflow">Intel Pentium Silver N5030 / 1.1 GHz, Win 11 Home in S mode, UHD Graphics 605, 8 GB RAM, 128 GB SSD, 15.6" TN 1920 x 1080 (Full HD), Wi-Fi 5, charcoal black, kbd: nordisk (dansk/finsk/norsk/svensk)</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<div class="site-currency-pre">2.999,00 kr.</div>
+<span class="site-currency-lg">2.799,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(2.239,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3105761" />
+<input name="token" type="hidden" value="ef87b6590e6b" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3105761">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="toggle" product>
+<div class="row">
+<div class="col-xs-4 col-sm-2 col-lg-3 text-center site-row-margin-top">
+<i class="site-image-discount-splash"><small>-12%</small></i>
+<a class="show" href="/Baerbar/Lenovo-ThinkPad-T470s-14-Core-i5-7300U-8-GB-RAM-512-GB-SSD-Refurbished-Upcycle-it/3133106"><img alt="Bærbar - Lenovo ThinkPad T470s - 14&quot; - Core i5 7300U - 8 GB RAM - 512 GB SSD - Refurbished / Upcycle it - LAP-T470S-MX-A005" class="lazy" data-src="/Images/150x100/3133106_cf0e8919e7c6.jpg" height="100" width="150" /></a><small class="mt-1 site-productlist-item-productid">3133106</small>
+<div data-energy data-cpn="S27361446" data-zoom="50" class="hidden site-row-margin-top text-left pl-2">
+<img /><br /><a href="javascript:void(0)"><small>Datablad</small></a>
+</div>
+</div>
+<div class="col-xs-8 col-sm-10 col-lg-9 site-row-margin-top site-nopadding">
+<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+<a class="site-product-link" href="/Baerbar/Lenovo-ThinkPad-T470s-14-Core-i5-7300U-8-GB-RAM-512-GB-SSD-Refurbished-Upcycle-it/3133106">
+<h2 product-display-name>Lenovo ThinkPad T470s - 14&quot; - Core i5 7300U - 8 GB RAM - 512 GB SSD - Refurbished / Upcycle it</h2>
+<div class="truncate-overflow">Intel Core i5 7300U / 2.6 GHz, intet OS, HD Graphics 620, 8 GB RAM, 512 GB SSD, 14" 1920 x 1080 (Full HD), kbd: Nordisk, istandsat, Grade A</div>
+</a>
+</div>
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mt-2">
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 price-container">
+<div class="site-currency-pre">3.199,00 kr.</div>
+<span class="site-currency-lg">2.799,00 kr.</span>
+<span class="site-currency-muted hidden-xs">(2.239,20 kr.)</span>
+</div>
+<div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex site-productlist-button-container">
+<form action="/Basket/AddItem" method="post" novalidate="novalidate" data-type="async-minibasket">
+<input name="productId" type="hidden" value="3133106" />
+<input name="token" type="hidden" value="68118c91687f" />
+<button class="btn site-btn-tall site-btn-tall-green w-100" type="submit" data-gtm-item-id="3133106">
+<span class="glyphicon glyphicon-shopping-cart position-relative"></span>
+<span class="hidden-xs">Køb</span>
+</button>
+<i class="site-row-margin-top-small visible-xs"></i>
+</form>
+</div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="site-stock site-stock-sm position-relative">
+<i class="site-stock-icon site-icon site-icon-stock-in"></i>
+<div class="site-stock-text">P&#229; lager – Levering i morgen (bestil inden 22:00)</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<div class="text-center">
+<div>
+<ul class="pagination d-inline-block">
+<li class="active"><a href="/?s=b%C3%A6rbar-computer" rel="follow" class="position-relative pull-left d-flex justify-content-center align-items-center">1</a></li>
+<li><a href="/?s=b%C3%A6rbar-computer&amp;pn=2" rel="follow" class="position-relative pull-left d-flex justify-content-center align-items-center">2</a></li>
+<li><a href="/?s=b%C3%A6rbar-computer&amp;pn=3" rel="follow" class="position-relative pull-left d-flex justify-content-center align-items-center">3</a></li>
+<li><a href="/?s=b%C3%A6rbar-computer&amp;pn=4" rel="follow" class="position-relative pull-left d-flex justify-content-center align-items-center">4</a></li>
+<li><a href="/?s=b%C3%A6rbar-computer&amp;pn=5" rel="follow" class="position-relative pull-left d-flex justify-content-center align-items-center">5</a></li>
+<li><a class="position-relative pull-left d-flex justify-content-center align-items-center noborder">...</a></li>
+<li><a href="/?s=b%C3%A6rbar-computer&amp;pn=92" rel="follow" class="position-relative pull-left d-flex justify-content-center align-items-center" target="_self">92</a></li>
+<li><a href="/?s=b%C3%A6rbar-computer&amp;pn=2" rel="follow" class="hidden-xs position-relative pull-left d-flex justify-content-center align-items-center"><span class="position-relative pull-left d-flex justify-content-center align-items-center">&raquo;</span></a></li>
+</ul>
+</div>
+</div></div>
+</main>
+<div class="col-xs-12 col-md-3 col-md-pull-9" style="padding-right: 10px;">
+<aside id="Site-menu" class="position-relative">
+<nav class="ps-nav" :class="{ active: currentCategory !== '' }" @mouseleave="isMobile ? null : throttleLeaveMenu(menuTimer);">
+<div class="ps-nav__shadow" :class="{ active: currentCategory !== '' }">
+<div class="ps-nav__title"> 
+<div v-if="isMobile" class="ps-nav__logo">
+<a href="/" aria-label="Back to Home"><img src=/Images/proshop_logo_tagline_new_outlined_med_opacity_3684c4325e81.svg></a>
+</div>
+<button type="button" class="ps-nav__header-btn" @click="hideMobileMenu" aria-label="Close"><i aria-hidden="true" class="pi-close"></i></button>
+</div>
+<ul class="ps-nav__main">
+<li class="ps-nav__cat outlet" :class="{ active: currentCategory == 'Sortiment_Outlet' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_Outlet', 'Auktion &amp; Outlet', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_Outlet', 'Auktion &amp; Outlet', columns);">
+<i data-bg="/Content/images/SVG/outlet.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Auktion-Outlet">Auktion &amp; Outlet</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_Outlet', 'pi-chev-right': currentCategory !== 'Sortiment_Outlet' }"></i>
+</li>
+<li class="ps-nav__cat campaign" :class="{ active: currentCategory == 'campaigns' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'campaigns', 'Kampagner', columns, true);" @mouseover="isMobile ? null : throttleMenu('campaigns', 'Kampagner', columns);">
+<i data-bg="/Content/images/SVG/campaigns.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/campaigns">Kampagner</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'campaigns', 'pi-chev-right': currentCategory !== 'campaigns' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'boger' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'boger', 'B&#248;ger', columns, true);" @mouseover="isMobile ? null : throttleMenu('boger', 'B&#248;ger', columns);">
+<i data-bg="/Content/images/SVG/boger.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Boeger">B&#248;ger</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'boger', 'pi-chev-right': currentCategory !== 'boger' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'Sortiment_SpilFilm' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_SpilFilm', 'B&#248;rn &amp; Leget&#248;j', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_SpilFilm', 'B&#248;rn &amp; Leget&#248;j', columns);">
+<i data-bg="/Content/images/SVG/spilfilm.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Boern-Legetoej">B&#248;rn &amp; Leget&#248;j</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_SpilFilm', 'pi-chev-right': currentCategory !== 'Sortiment_SpilFilm' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'Sortiment_Computer' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_Computer', 'Computer', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_Computer', 'Computer', columns);">
+<i data-bg="/Content/images/SVG/computer.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Computer">Computer</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_Computer', 'pi-chev-right': currentCategory !== 'Sortiment_Computer' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'pets' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'pets', 'Dyreartikler', columns, true);" @mouseover="isMobile ? null : throttleMenu('pets', 'Dyreartikler', columns);">
+<i data-bg="/Content/images/SVG/pets.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Dyreartikler">Dyreartikler</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'pets', 'pi-chev-right': currentCategory !== 'pets' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'Sortiment_Belysning' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_Belysning', 'El &amp; VVS', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_Belysning', 'El &amp; VVS', columns);">
+<i data-bg="/Content/images/SVG/belysning.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/El-VVS">El &amp; VVS</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_Belysning', 'pi-chev-right': currentCategory !== 'Sortiment_Belysning' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'Sortiment_FotoVideo' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_FotoVideo', 'Foto &amp; Video', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_FotoVideo', 'Foto &amp; Video', columns);">
+<i data-bg="/Content/images/SVG/fotovideo.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Foto-Video">Foto &amp; Video</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_FotoVideo', 'pi-chev-right': currentCategory !== 'Sortiment_FotoVideo' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'Sortiment_Hardware' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_Hardware', 'Hardware', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_Hardware', 'Hardware', columns);">
+<i data-bg="/Content/images/SVG/hardware.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Hardware">Hardware</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_Hardware', 'pi-chev-right': currentCategory !== 'Sortiment_Hardware' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'Sortiment_HusHave' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_HusHave', 'Hus &amp; Have', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_HusHave', 'Hus &amp; Have', columns);">
+<i data-bg="/Content/images/SVG/hushave.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Hus-Have">Hus &amp; Have</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_HusHave', 'pi-chev-right': currentCategory !== 'Sortiment_HusHave' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'Sortiment_Husholdning' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_Husholdning', 'Husholdning', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_Husholdning', 'Husholdning', columns);">
+<i data-bg="/Content/images/SVG/husholdning.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Husholdning">Husholdning</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_Husholdning', 'pi-chev-right': currentCategory !== 'Sortiment_Husholdning' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'Sortiment_KablerStik' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_KablerStik', 'Kabler &amp; Stik', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_KablerStik', 'Kabler &amp; Stik', columns);">
+<i data-bg="/Content/images/SVG/kablerstik.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Kabler-Stik">Kabler &amp; Stik</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_KablerStik', 'pi-chev-right': currentCategory !== 'Sortiment_KablerStik' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'office-supplies' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'office-supplies', 'Kontor- og hobbyartikler', columns, true);" @mouseover="isMobile ? null : throttleMenu('office-supplies', 'Kontor- og hobbyartikler', columns);">
+<i data-bg="/Content/images/SVG/office-supplies.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Kontor-og-hobbyartikler">Kontor- og hobbyartikler</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'office-supplies', 'pi-chev-right': currentCategory !== 'office-supplies' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'Sortiment_MobilGPS' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_MobilGPS', 'Mobil &amp; Tablet', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_MobilGPS', 'Mobil &amp; Tablet', columns);">
+<i data-bg="/Content/images/SVG/mobilgps.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Mobil-Tablet">Mobil &amp; Tablet</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_MobilGPS', 'pi-chev-right': currentCategory !== 'Sortiment_MobilGPS' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'Sortiment_Netvaerk' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_Netvaerk', 'Netv&#230;rk', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_Netvaerk', 'Netv&#230;rk', columns);">
+<i data-bg="/Content/images/SVG/netvaerk.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Netvaerk">Netv&#230;rk</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_Netvaerk', 'pi-chev-right': currentCategory !== 'Sortiment_Netvaerk' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'Sortiment_PersonligPleje' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_PersonligPleje', 'Personlig pleje', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_PersonligPleje', 'Personlig pleje', columns);">
+<i data-bg="/Content/images/SVG/personligpleje.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Personlig-pleje">Personlig pleje</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_PersonligPleje', 'pi-chev-right': currentCategory !== 'Sortiment_PersonligPleje' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'Sortiment_PrintereForbrugstoffer' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_PrintereForbrugstoffer', 'Printere &amp; Forbrugsstoffer', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_PrintereForbrugstoffer', 'Printere &amp; Forbrugsstoffer', columns);">
+<i data-bg="/Content/images/SVG/printereforbrugstoffer.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Printere-Forbrugsstoffer">Printere &amp; Forbrugsstoffer</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_PrintereForbrugstoffer', 'pi-chev-right': currentCategory !== 'Sortiment_PrintereForbrugstoffer' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'Sortiment_Software' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_Software', 'Software', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_Software', 'Software', columns);">
+<i data-bg="/Content/images/SVG/software.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Software">Software</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_Software', 'pi-chev-right': currentCategory !== 'Sortiment_Software' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'games-gaming' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'games-gaming', 'Spil &amp; Gaming', columns, true);" @mouseover="isMobile ? null : throttleMenu('games-gaming', 'Spil &amp; Gaming', columns);">
+<i data-bg="/Content/images/SVG/games-gaming.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Spil-Gaming">Spil &amp; Gaming</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'games-gaming', 'pi-chev-right': currentCategory !== 'games-gaming' }"></i>
+</li>
+<li class="ps-nav__cat " :class="{ active: currentCategory == 'Sortiment_TVHifi' }" @touchmove.passive="touchDrag = true;" @touchStart.passive="touchDrag = false;" @touchend="getMenuItems( 'Sortiment_TVHifi', 'Tv og lyd', columns, true);" @mouseover="isMobile ? null : throttleMenu('Sortiment_TVHifi', 'Tv og lyd', columns);">
+<i data-bg="/Content/images/SVG/tvhifi.svg" width="25" height="25" class="ps-nav__icon lazy"></i>
+<a href="/Tv-og-lyd">Tv og lyd</a>
+<i class="pi-xs" :class="{ 'pi-arrow-red-right': currentCategory == 'Sortiment_TVHifi', 'pi-chev-right': currentCategory !== 'Sortiment_TVHifi' }"></i>
+</li>
+</ul>
+</div>
+<sub-menu @mouseover="clearTimeOut(menuTimer);" :nodes="data[activeId]" @previous="toStartMenu" @closemenu="hideMobileMenu" :hover="hover" :ismobile="isMobile" :categoryname="categoryName"></sub-menu>
+<div id="productMenu" class="visible-lg visible-md"></div>
+</nav>
+</aside>
+<div id="productMenu" class="visible-md visible-lg"></div>
+<div class="hidden-xs hidden-sm mt-2">
+<div class="mb-2"><div data-vueapp="campaigns" class="empty" id="c49271a34d03945e7814b28d0918bb617" element-id="49271a34-d039-45e7-814b-28d0918bb617" data="e30=">
+<div class="position-absolute" style="inset: 0 0; border: 1px solid #e8e8e8;"><div class="site-spinner position-absolute" style="left: 50%; bottom: 40%; transform: translate(-50%, 50%)"></div></div>
+</div>
+</div><div data-vueapp="campaigns" class="empty" id="c81cecc2c6c754ff4bdfbc548018d6412" element-id="81cecc2c-6c75-4ff4-bdfb-c548018d6412" data="e30=">
+<div class="position-absolute" style="inset: 0 0; border: 1px solid #e8e8e8;"><div class="site-spinner position-absolute" style="left: 50%; bottom: 40%; transform: translate(-50%, 50%)"></div></div>
+</div>
+</div>
+</div>
+</div>
+</div><script type="module">
+    Consent.activateFor('functional', function () {
+            (function (s, o, l, v, e, m, a, t) {
+        t = 'solvemateConfig'; s[e] = s[e] || function (x, y) { (s[t] = s[t] || {})[x] = y; }; a = o.createElement(l); a.async = 1; a.src = v; o.body.appendChild(a);
+    })(window, document, 'script', 'https://widget.solvemate.com/v2/init.js', 'solvemate');
+    solvemate('projectID', '5f994edd45b0d36364c03bba');
+    if (document.getElementById("chatbot") != null) {
+        solvemate('hideBeacon', true);
+        solvemate('inlineContainerId', 'chatbot');
+        solvemate('hideGreeting', true);
+    }
+    });
+</script>
+</div>
+<footer class="footer position-relative" role="contentinfo">
+<div class="footer__top py-4">
+<div class="ps-container">
+<div class="footer-row__flex justify-content-between">
+<div class="lead f-white flex-1">
+Få nyheder, tilbud og konkurrencer direkte i din mailboks
+</div>
+<form action="/CustomerCenter/Newsletter/Subscribe" class="input-newsletter mx-2 position-relative flex-2" method="get"><input name="__RequestVerificationToken" type="hidden" value="LUZ6EdgTTiNnuY_x35-fjziXBs93f_VnUE0rtaPZdD3iJVMQoLI04c9fsauI2oPvz1uIz-alKEKftOSB3Tw-vPySOp-5wJXttwj2bZr18aY1" /> <input name="Email" class="input__round-lg w-100 pr-5" type="email" placeholder="skriv e-mail adresse">
+<button type="submit" aria-label="Newsletter Subscribe" class="input__round-btn position-absolute d-flex justify-content-center align-items-center">
+<i class="pi-sm pi-send-mail"></i>
+</button>
+</form>
+<div class="d-flex align-items-center justify-content-between flex-1"><span class="lead f-white hidden-xs" style="white-space: nowrap;">Find os på:</span>
+<a class="px-half" rel="noreferrer" href="https://www.facebook.com/proshop.dk/" target="_blank"><img class="lazy soci-icon" width="40" height="40" data-src="/Content/images/SVG/facebook.svg" src="" alt="Facebook" /></a>
+<a class="px-half" rel="noreferrer" href="https://www.instagram.com/proshop.dk/" target="_blank"><img class="lazy soci-icon" width="40" height="40" data-src="/Content/images/SVG/instagram.svg" src="" alt="Instagram" /></a>
+<a class="px-half" rel="noreferrer" href="https://www.tiktok.com/@proshop.dk" target="_blank"><img class="lazy soci-icon" width="40" height="40" data-src="/Content/images/SVG/tiktok.svg" src="" alt="TikTok" /></a>
+<a class="px-half" rel="noreferrer" href="https://www.youtube.com/c/ProshopDk" target="_blank"><img class="lazy soci-icon" width="40" height="40" data-src="/Content/images/SVG/youtube-logotype.svg" src="" alt="Youtube" /></a>
+</div>
+</div>
+</div>
+</div>
+<div class="ps-container">
+<div class="ps-container__inner ps__template--footer">
+<div class="footer__contact footer__accordion-item active">
+<div class="display-5 footer__header"><span class="align-items-center"><i class="pi-sm pi-headphones-b mr-1"></i>&#197;bningstider telefon</span><button class="footer__toggle" data-toggle="true" aria-expanded="true" aria-controls="accordion__section-0"><div class="align-items-center text-left d-flex__nb"><i class="pi-sm pi-headphones-b mr-1"></i>&#197;bningstider telefon</div> <i class="pi-xs pi-chevron-down"></i></button></div>
+<div id="accordion__section-0" class="footer__accordion-list">
+<div class="row">
+<div class="col-xs-6 text-left">Mandag - Torsdag:<br />Fredag:<br />Lørdag, søndag &amp; <br />helligdage:</div>
+<div class="col-xs-6 text-left">8:00 - 16:00<br />8:00 - 15:30<br /><br />Lukket</div>
+</div>
+<br />
+<div class="row">
+<div class="col-xs-12 text-left"><a href="/Kundeservice.htm">Kontakt os</a></div>
+</div>
+<div class="pt-2"><p class="display-5 footer__display m-0">&#197;bningstider for afhentning af varer</p>Se åbningstider og adresser for Pick-up Points i København og Aarhus, <span style="text-decoration: underline;"><strong><a href="/Om-Pick-up-Points.htm">klik her</a></strong></span>.</div>
+</div>
+</div>
+<div class="footer__support footer__accordion-item">
+<div class="display-5 footer__header"><span>Support</span><button class="footer__toggle" data-toggle="true" aria-expanded="false" aria-controls="accordion__section-1">Support <i class="pi-xs pi-chevron-down"></i></button></div>
+<div id="accordion__section-1" class="footer__accordion-list">
+<ul class="list-unstyled arrow__list">
+<li><a href="/Guides.htm"> Guides</a></li>
+<li><a href="/Forsendelse-og-levering.htm"> Forsendelse og levering</a></li>
+<li><a href="/Om-Pick-up-Points.htm"> Om Pick-up Points</a></li>
+<li><a href="/Reparation-Defekt.htm"> Reparation / Defekt</a></li>
+<li><a href="/Kundeservice.htm"> Kundeservice</a></li>
+<li><a href="/Handelsbetingelser.htm"> Handelsbetingelser</a></li>
+<li><a href="/Persondatapolitik.htm"> Persondatapolitik</a></li>
+</ul>
+</div>
+</div>
+<div class="footer__myProshop footer__accordion-item">
+<div class="display-5 footer__header"><span>Min side</span><button class="footer__toggle" data-toggle="true" aria-expanded="false" aria-controls="accordion__section-2">Min side <i class="pi-xs pi-chevron-down"></i></button></div>
+<div id="accordion__section-2" class="footer__accordion-list">
+<ul class="list-unstyled arrow__list">
+<li><a href="/CustomerCenter/Rma/Login"> Reklamation</a></li>
+<li><a href="/CustomerCenter/CustomerReturn/StartReturnCase"> Returnering</a></li>
+<li><a href="/CustomerCenter"> Min konto</a></li>
+<li><a href="/CustomerCenter/Account"> K&#248;bshistorik</a></li>
+<li><a href="/CustomerCenter/CustomerAccount/ForgotPassword"> Glemt adgangskode</a></li>
+</ul>
+</div>
+</div>
+<div class="footer__address">
+<div class="footer__accordion-item">
+<div class="display-5 footer__header"><span>Kontakt</span><button class="footer__toggle" data-toggle="true" aria-expanded="false" aria-controls="accordion__section-3">Kontakt <i class="pi-xs pi-chevron-down"></i></button></div>
+<div id="accordion__section-3" class="footer__accordion-list">
+Proshop a/s<br />Slet Møllevej 17<br />8270 Højbjerg<br />Danmark<br />DK18966239<br /><a href="/cdn-cgi/l/email-protection#64171114140b16102414160b170c0b144a000f"><span class="__cf_email__" data-cfemail="bccfc9ccccd3cec8fcccced3cfd4d3cc92d8d7">[email&#160;protected]</span></a><br /><br />
+<ul class="list-unstyled arrow__list">
+<li><a href="/Om-Proshop.htm"> Om Proshop</a></li>
+<li><a href="/Proshop-Erhverv.htm"> Proshop Erhverv</a></li>
+<li><a href="/Job.htm"> Job</a></li>
+</ul>
+<div class="pt-2">
+<div class="dropdown-lang position-relative d-inline-block">
+<button class="btn btn-light btn__border--round dropdown-toggle align-items-center position-relative" type="button" id="dropdown-lang"><i class="pi-xs pi-globe"></i>Lande</button>
+<ul id="accordion__section-lang" class="dropdown__list position-absolute" aria-labelledby="dropdown-lang">
+<li><a class="dropdown-item" href="//www.proshop.de">proshop.de</a></li>
+<li><a class="dropdown-item" href="//www.proshop.no">proshop.no</a></li>
+<li><a class="dropdown-item" href="//www.proshop.fi">proshop.fi</a></li>
+<li><a class="dropdown-item" href="//www.proshop.pl">proshop.pl</a></li>
+<li><a class="dropdown-item" href="//www.proshop.at">proshop.at</a></li>
+<li><a class="dropdown-item" href="//www.proshop.nl">proshop.nl</a></li>
+<li><a class="dropdown-item" href="//www.proshop.se">proshop.se</a></li>
+</ul>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        let dropdown = document.getElementById('dropdown-lang');
+        dropdown.addEventListener('click', function () {
+            dropdown.classList.toggle('open');
+            if (dropdown.classList.contains('open'))
+                remDropdown();
+        });
+        function remDropdown() {
+            window.addEventListener('click', function (e) {
+                !e.target.matches('#dropdown-lang') ? dropdown.classList.remove('open') : "";
+                e.stopPropagation();
+            });
+        }
+    </script>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="ps-container"><div class="footer-row__flex pb-4 pt-2 footer__border justify-content-center"> <a data-action="campaignClick" data-id="3c871804-857c-4555-a051-a659fd8e74e4" data-name="Proshop.dk defaults" data-creative="299d6d40-a5aa-42b0-914e-f084bc90add2" data-position="footer-certification" rel=noreferrer aria-label="Go to Emaerke Certification Site" href=//certifikat.emaerket.dk/eshop/proshop.dk target=_blank id=emaerke><div class=proshop-dk-icon-emaerke-logo></div></a><script defer data-consent-src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=L6MTra" src="" data-category-consent=cookie_cat_marketing></script><script>window._learnq=window._learnq||[];window._learnq.push(["track","Visited webpage",{url:window.location.href,name:document.title}])</script> </div></div>
+<div class="footer__bottom">
+<div class="ps-container">
+<div class="footer-row__flex pt-4 pb-2 justify-content-between align-items-center">
+<div class="text-center flex-center">
+<div class="site-icon-delivery-postnord-svg mb-2 mx-1"></div>
+</div>
+<div class="text-center flex-center flex-wrap">
+<div class="footer__payment mb-2"><div class="site-icon-card-sm-dankort"></div></div>
+<div class="footer__payment mb-2"><div class="site-icon-card-sm-mobile-pay"></div></div>
+<div class="footer__payment mb-2"><div class="site-icon-payment-svg-visa"></div></div>
+<div class="footer__payment mb-2"><div class="site-icon-card-sm-mastercard"></div></div>
+<div class="footer__payment mb-2"><div class="site-icon-card-sm-paypal"></div></div>
+<div class="footer__payment mb-2"><div class="site-icon-card-sm-klarna"></div></div>
+</div>
+</div>
+</div>
+<div id="autionsMenu" class="internalAuctions ps-container"></div>
+</div>
+<script type="text/javascript">
+    let footerToggle = document.querySelectorAll("[data-toggle='true']");
+    for (var i = 0; i < footerToggle.length; i++) { footerToggle[i].addEventListener('click', function (e) {e.currentTarget.closest('.footer__accordion-item').classList.toggle('active');this.toggleAttribute('aria-expanded');});}
+</script><input id="cookieTextFirstPart" type="hidden" value="Hos Proshop a/s bruger vi cookies til at forbedre brugeroplevelsen samt til personalisering af indhold og annoncer. Denne information deles med tredjepart, eksempelvis Google og Facebook, og cookies anvendes til anonym sporing p&#229; tv&#230;rs af hjemmesider." />
+<input id="cookieTextLastPart" type="hidden" value="Ved at bruge vores hjemmeside, godkender du vores cookie- og persondatapolitik." />
+<input id="cookieLinkText" type="hidden" value="Du kan l&#230;se mere her" />
+<input id="cookieLink" type="hidden" value="https://www.proshop.dk/Persondatapolitik.htm" />
+<input id="cookieAcceptButtonText" type="hidden" value="OK" /></footer>
+<div class="modal--custom modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true" data-url="/CustomerCenter/CustomerAccount/TopLogin">
+<div class="modal-dialog position-relative" role="document" style="background-color: #fff;">
+<div class="modal-body position-relative"><button type="button" class="login-modal--close d-flex align-items-center justify-content-end position-absolute" data-dismiss="modal" aria-label="Close">Luk <i aria-hidden="true" class="pi-close"></i></button><div id="modalData"><div class="site-spinner text-center"></div></div></div>
+</div>
+</div>
+<div id="fixedBottomMessage"></div>
+<script type="text/javascript">Consent.activateFor('marketing', function () {!function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s) }(window, document, 'script', '//connect.facebook.net/en_US/fbevents.js'); fbq('init', '1683264511939728'); fbq('track', 'PageView');});</script>
+<noscript><img height="1" width="1" style="display: none" src="" data-consent-src="//www.facebook.com/tr?id=1683264511939728&ev=PageView&noscript=1" data-category-consent="cookie_cat_statistic" /></noscript>
+<div id="device-xs" class="visible-xs"></div>
+<script type="text/javascript" language="javascript">
+        var rsa;var raptorLoaded = function (raptor) { rsa = raptor; raptor.initialize({ customerID: "5875", productIdParamIndex: 2, eventTypeParamIndex: 1, useCookies: Consent.isValid('marketing') });
+            var raptorUserId = '';var userId = $('#minibasket').data('customerid');if (raptorUserId.length > 0) userId = raptorUserId;else if (userId === '0') userId = ''; raptor.trackEvent("visit", "", "", "", "", "", userId, "", "", "", "", "");
+        };
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7c79701d9a3cbe51","version":"2023.4.0","b":1,"token":"f8b2150c90b94f51987ae93c4994ca3a","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>
