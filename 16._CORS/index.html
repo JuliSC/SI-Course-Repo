@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timestamps</title>
+  </head>
+  <body>
+    <h1>Timestamps</h1>
+
+    <h3>From Express</h3>
+    <div id="timestamp-express"></div>
+
+    <script>
+      fetch("https://07cd-89-23-224-113.ngrok-free.app/timestamp")
+        .then((res) => res.json())
+        .then((result) => {
+          const timestamp = document.querySelector("#timestamp-express");
+          timestamp.innerText = result;
+        });
+    </script>
+  </body>
+</html>
